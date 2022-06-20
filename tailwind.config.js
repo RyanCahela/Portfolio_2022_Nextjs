@@ -18,6 +18,13 @@ module.exports = {
         serif: ["Ibarra Real Nova", "serif"],
         sans: ["Public Sans", "sans-serif"],
       },
+      fontSize: {
+        sm: ["0.9375rem", "1.875rem"],
+        base: ["1rem", "1.875rem"],
+        "3xl": ["2rem", "2.25rem"],
+        "4xl": ["2.5rem", "2.625rem"],
+        "5xl": ["3.125rem", "3.125rem"],
+      },
     },
   },
   plugins: [],
