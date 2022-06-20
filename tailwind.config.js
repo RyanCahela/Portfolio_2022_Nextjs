@@ -14,6 +14,10 @@ module.exports = {
         "light-gray": "#EAEAEB",
         "bright-red": "#F43030",
       },
+      fontFamily: {
+        serif: ["Ibarra Real Nova", "serif"],
+        sans: ["Public Sans", "sans-serif"],
+      },
     },
   },
   plugins: [],
