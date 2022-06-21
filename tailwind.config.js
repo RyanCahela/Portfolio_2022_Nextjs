@@ -27,6 +27,9 @@ module.exports = {
         "5xl": ["3.125rem", "3.125rem"],
         "form-size": ["0.8125rem", "1.875rem"],
       },
+      width: {
+        15: "3.75rem",
+      },
     },
   },
   plugins: [],
