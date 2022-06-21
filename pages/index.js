@@ -10,6 +10,7 @@ import Title3 from "../components/Typography/Title3";
 import Body1 from "../components/Typography/Body1";
 import Body2 from "../components/Typography/Body2";
 import PrimaryButton from "../components/Buttons/PrimaryButton";
+import SecondaryButton from "../components/Buttons/SecondaryButton";
 
 export default function Home() {
   return (
@@ -36,7 +37,11 @@ export default function Home() {
 
       <Title2>Buttons</Title2>
       <PrimaryButton textContent="About Me" />
-      <PrimaryButton textContent="About Me" disabled={true} />
+      <PrimaryButton textContent="About Me" disabled="true" />
+      <div className="flex flex-col items-start gap-4">
+        <SecondaryButton textContent="Contact Me" />
+        <SecondaryButton textContent="Contact Me" disabled="true" />
+      </div>
 
       <p className="font-sans"></p>
       <Header />
