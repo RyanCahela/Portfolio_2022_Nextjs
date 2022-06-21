@@ -11,6 +11,7 @@ import Body1 from "../components/Typography/Body1";
 import Body2 from "../components/Typography/Body2";
 import PrimaryButton from "../components/Buttons/PrimaryButton";
 import SecondaryButton from "../components/Buttons/SecondaryButton";
+import TextArea from "../components/FormElements/TextArea";
 
 export default function Home() {
   return (
@@ -42,6 +43,12 @@ export default function Home() {
         <SecondaryButton textContent="Contact Me" />
         <SecondaryButton textContent="Contact Me" disabled="true" />
       </div>
+
+      <Title2>Form Elements</Title2>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <TextArea labelText="Message" />
+        <button type="submit">submit</button>
+      </form>
 
       <p className="font-sans"></p>
       <Header />
