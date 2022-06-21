@@ -7,15 +7,16 @@ const textAreaClasses = `
   px-4
   py-2
 
-${
-  /*
   focus:outline-cyan
   focus:outline-4
-  */ ""
-}
+
+  required:focus:outline-bright-red
+  required:focus:outline-2
+  required:focus:outline 
   required:outline-bright-red
   required:outline-2
   required:outline 
+
 `;
 
 const TextArea = ({ labelText = "No Label Text Defined", isError = false }) => {
