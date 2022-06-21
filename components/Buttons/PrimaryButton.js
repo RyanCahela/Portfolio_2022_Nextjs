@@ -4,6 +4,7 @@ import DownArrowsSVG from "../Icons/DownArrowsSVG";
 const buttonClasses = `
   ${/* Layout */ ""}
   flex
+  w-50
 
   ${/* Typography */ ""}
   font-sans
@@ -31,7 +32,7 @@ const PrimaryButton = ({ textContent, disabled = null }) => {
           <DownArrowsSVG />
         </div>
       </div>
-      <div className="py-4 px-6">{textContent}</div>
+      <div className="py-4 text-center w-full">{textContent}</div>
     </button>
   );
 };
