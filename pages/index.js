@@ -12,6 +12,7 @@ import Body2 from "../components/Typography/Body2";
 import PrimaryButton from "../components/Buttons/PrimaryButton";
 import SecondaryButton from "../components/Buttons/SecondaryButton";
 import TextArea from "../components/FormElements/TextArea";
+import TextField from "../components/FormElements/TextField";
 
 export default function Home() {
   return (
@@ -38,15 +39,16 @@ export default function Home() {
 
       <Title2>Buttons</Title2>
       <PrimaryButton textContent="About Me" />
-      <PrimaryButton textContent="About Me" disabled="true" />
+      <PrimaryButton textContent="About Me" disabled={true} />
       <div className="flex flex-col items-start gap-4">
         <SecondaryButton textContent="Contact Me" />
-        <SecondaryButton textContent="Contact Me" disabled="true" />
+        <SecondaryButton textContent="Contact Me" disabled={true} />
       </div>
 
       <Title2>Form Elements</Title2>
       <form onSubmit={(e) => e.preventDefault()}>
         <TextArea labelText="Message" />
+        <TextField />
         <button type="submit">submit</button>
       </form>
 

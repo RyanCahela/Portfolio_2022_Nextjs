@@ -19,7 +19,7 @@ const textAreaClasses = `
 
 `;
 
-const TextArea = ({ labelText = "No Label Text Defined", isError = false }) => {
+const TextArea = ({ labelText = "No Label Text Defined" }) => {
   const id = useId();
   const [inputVal, setInputVal] = useState("");
   const [hasUserInteracted, setHasUserInteracted] = useState(false);
@@ -33,7 +33,7 @@ const TextArea = ({ labelText = "No Label Text Defined", isError = false }) => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-2">
       <label
         className="text-grayish-dark-blue font-bold text-form-size"
         htmlFor={id}>
