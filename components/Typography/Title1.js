@@ -5,8 +5,6 @@ const h1Classes = `
   font-bold
   text-4xl
   -tracking-[0.36px]
-  text-grayish-dark-blue
-
 
   lg:text-5xl
   lg:-tracking-[0.45px]

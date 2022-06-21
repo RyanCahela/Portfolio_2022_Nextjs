@@ -13,6 +13,7 @@ module.exports = {
         "very-light-gray": "#FAFAFA",
         "light-gray": "#EAEAEB",
         "bright-red": "#F43030",
+        gray: "#979797",
       },
       fontFamily: {
         serif: ["Ibarra Real Nova", "serif"],
@@ -30,6 +31,9 @@ module.exports = {
       width: {
         15: "3.75rem",
         50: "12.5rem",
+      },
+      gap: {
+        18: "4.5rem",
       },
     },
   },
