@@ -26,13 +26,13 @@ const PortfolioProject = ({ data }) => {
   return (
     <div className="px-8">
       <Header />
+      <Image
+        src={images.hero.url}
+        alt={`${title} screenshot`}
+        width={images.hero.width}
+        height={images.hero.height}
+      />
       <div className="mt-10 py-6 flex flex-col gap-6 border-t-2 border-b-2 border-y-light-gray">
-        <Image
-          src={images.hero.url}
-          alt={`${title} screenshot`}
-          width={images.hero.width}
-          height={images.hero.height}
-        />
         <Title1>{title}</Title1>
         <Body2>{bodyCopy}</Body2>
         <div>Interaction Design / Front End Development</div>
