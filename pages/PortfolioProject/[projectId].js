@@ -5,14 +5,13 @@ import Link from "next/link";
 
 import Title1 from "../../components/Typography/Title1";
 import Title3 from "../../components/Typography/Title3";
-import portfoioData from "../../components/Sections/Portfolio/portfolioData";
 import Header from "../../components/Sections/Header/Header";
 import Body2 from "../../components/Typography/Body2";
 import SecondaryButton from "../../components/Buttons/SecondaryButton";
 import Contact from "../../components/Sections/Contact/Contact";
 import Footer from "../../components/Sections/Footer/Footer";
 
-const PortfolioProject = () => {
+const PortfolioProject = ({ data }) => {
   const router = useRouter();
   const { projectId } = router.query;
   const {
@@ -22,19 +21,19 @@ const PortfolioProject = () => {
     technologies,
     projectBackgroundCopy,
     staticPreviewImgSrc,
-  } = portfoioData[projectId];
+  } = data[projectId];
   return (
     <div className="px-8">
       <Header />
       <div className="mt-10 py-6 flex flex-col gap-6 border-t-2 border-b-2 border-y-light-gray">
-        <Image src={imgSrc} alt={`${title} screenshot`} />
+        {/* <Image src={imgSrc} alt={`${title} screenshot`} /> */}
         <Title1>{title}</Title1>
         <Body2>{bodyCopy}</Body2>
         <div>Interaction Design / Front End Development</div>
         <div className="flex gap-4 text-cyan">
-          {technologies.map((tech) => (
+          {/* {technologies.map((tech) => (
             <span key={tech}>{tech}</span>
-          ))}
+          ))} */}
         </div>
         <Link href="#">
           <a>
@@ -49,9 +48,9 @@ const PortfolioProject = () => {
       <div className="pt-10 flex flex-col gap-10">
         <Title3>Static Previews</Title3>
         <div className="flex flex-col gap-8">
-          {staticPreviewImgSrc.map((img, index) => (
+          {/* {staticPreviewImgSrc.map((img, index) => (
             <Image key={index} src={img} alt={`${title} screenshot`} />
-          ))}
+          ))} */}
         </div>
       </div>
       <Contact />
@@ -59,5 +58,27 @@ const PortfolioProject = () => {
     </div>
   );
 };
+
+import fsPromises from "fs/promises";
+import path from "path";
+export async function getStaticProps() {
+  const filepath = path.join(
+    process.cwd(),
+    "pages/PortfolioProject/portfolioData.json"
+  );
+  const json = await fsPromises.readFile(filepath);
+  const data = await JSON.parse(json);
+
+  return {
+    props: { data },
+  };
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: ["/PortfolioProject/0", "/PortfolioProject/1"],
+    fallback: false,
+  };
+}
 
 export default PortfolioProject;
