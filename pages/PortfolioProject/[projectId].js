@@ -21,19 +21,25 @@ const PortfolioProject = ({ data }) => {
     technologies,
     projectBackgroundCopy,
     staticPreviewImgSrc,
+    images,
   } = data[projectId];
   return (
     <div className="px-8">
       <Header />
       <div className="mt-10 py-6 flex flex-col gap-6 border-t-2 border-b-2 border-y-light-gray">
-        {/* <Image src={imgSrc} alt={`${title} screenshot`} /> */}
+        <Image
+          src={images.hero.url}
+          alt={`${title} screenshot`}
+          width={images.hero.width}
+          height={images.hero.height}
+        />
         <Title1>{title}</Title1>
         <Body2>{bodyCopy}</Body2>
         <div>Interaction Design / Front End Development</div>
         <div className="flex gap-4 text-cyan">
-          {/* {technologies.map((tech) => (
+          {technologies.map((tech) => (
             <span key={tech}>{tech}</span>
-          ))} */}
+          ))}
         </div>
         <Link href="#">
           <a>
@@ -48,9 +54,22 @@ const PortfolioProject = ({ data }) => {
       <div className="pt-10 flex flex-col gap-10">
         <Title3>Static Previews</Title3>
         <div className="flex flex-col gap-8">
-          {/* {staticPreviewImgSrc.map((img, index) => (
-            <Image key={index} src={img} alt={`${title} screenshot`} />
-          ))} */}
+          <div>
+            <Image
+              src={images.preview1.url}
+              alt={`${title} screenshot`}
+              width={images.preview1.width}
+              height={images.preview1.height}
+            />
+          </div>
+          <div className="w-full relative">
+            <Image
+              src={images.preview2.url}
+              alt={`${title} screenshot`}
+              width={images.preview2.width}
+              height={images.preview2.height}
+            />
+          </div>
         </div>
       </div>
       <Contact />

@@ -7,7 +7,24 @@
     "externalUrl": "http://ryancahela.com",
     "projectBackgroundCopy": "This project was a front-end  challenge from Frontend Mentor. It&apos;s a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I&apos;ve learned something new with each project, helping me to improve and adapt my style.",
     "timlapseUrl": "",
-    "staticPreviewImgSrc": ""
+    "staticPreviewImgSrc": "",
+    "images": {
+      "hero": {
+        "url": "/../public/images/detail/desktop/image-manage-hero@2x.jpg",
+        "width": 2220,
+        "height": 1000
+      },
+      "preview1": {
+        "url": "/../public/images/detail/desktop/image-manage-preview-1@2x.jpg",
+        "width": 1270,
+        "height": 800
+      },
+      "preview2": {
+        "url": "/../public/images/detail/desktop/image-manage-preview-2@2x.jpg",
+        "width": 1270,
+        "height": 800
+      }
+    }
   },
   {
     "title": "Bookmark",
@@ -17,6 +34,23 @@
     "externalUrl": "http://ryancahela.com",
     "projectBackgroundCopy": "This project was a front-end  challenge from Frontend Mentor. It&apos;s a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I&apos;ve learned something new with each project, helping me to improve and adapt my style.",
     "timlapseUrl": "",
-    "staticPreviewImgSrc": ""
+    "staticPreviewImgSrc": "",
+    "images": {
+      "hero": {
+        "url": "/../public/images/detail/desktop/image-bookmark-hero@2x.jpg",
+        "width": 2220,
+        "height": 1000
+      },
+      "preview1": {
+        "url": "/../public/images/detail/desktop/image-bookmark-preview-1@2x.jpg",
+        "width": 1270,
+        "height": 800
+      },
+      "preview2": {
+        "url": "/../public/images/detail/desktop/image-bookmark-preview-2@2x.jpg",
+        "width": 1270,
+        "height": 800
+      }
+    }
   }
 ]
