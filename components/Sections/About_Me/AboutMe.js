@@ -7,9 +7,21 @@ import SecondaryButton from "../../Buttons/SecondaryButton";
 
 const AboutMe = () => {
   return (
-    <section id="AboutMe" className="">
-      <Image src={profilePic} alt="Ryan Cahela portrait" layout="responsive" />
-      <div className="mt-8 pt-8 pb-[3.125rem] flex flex-col gap-7 border-t border-b border-gray">
+    <section
+      id="AboutMe"
+      className="w-full md:flex md:gap-24 md:justify-between">
+      <div className="w-full relative md:basis-1/3 aspect-square">
+        <Image
+          src={profilePic}
+          height={1200}
+          width={1080}
+          alt="Ryan Cahela portrait"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="right"
+        />
+      </div>
+      <div className="md:basis-2/3 mt-8 md:mt-0 pt-8 pb-[3.125rem] flex flex-col gap-7 border-t border-b border-gray">
         <Title2>About Me</Title2>
         <Body1>
           I&apos;m a junior front-end developer looking for a new role in an

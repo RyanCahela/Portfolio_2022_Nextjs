@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section className="pb-24 md:relative">
       <Image src={heroImage} alt="computer on a desk" layout="responsive" />
-      <div className="md:absolute md:bottom-24 md:left-0 md:w-[32.125rem] md:h-[17.375rem] md:bg-white md:pt-14">
+      <div className="md:absolute md:bottom-24 md:left-0 w-fit md:bg-white md:pt-14 md:pr-14 md:mr-44">
         <div className="pt-6 pb-8">
           <Title1>
             Hi, I&apos;m Ryan Cahela and I love building beautiful websites
