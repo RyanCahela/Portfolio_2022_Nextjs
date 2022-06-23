@@ -6,7 +6,7 @@ import portfolioData from "../Portfolio/portfolioData";
 
 const Portfolio = () => {
   return (
-    <section>
+    <section id="Portfolio" className="-mt-20 pt-20">
       <Title2>Protfolio</Title2>
       <ul className="mt-6 flex flex-col gap-18">
         {portfolioData.map((data) => (

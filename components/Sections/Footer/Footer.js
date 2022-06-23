@@ -1,9 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import MainLogoSVG from "../../Logos/MainLogoSVG";
-import GithubLogoSVG from "../../Logos/GithubLogoSVG";
-import TwitterLogoSVG from "../../Logos/TwitterLogoSVG";
-import LinkedinLogoSVG from "../../Logos/LinkedinLogoSVG";
+import SocialLinks from "../../ExternalLinks/SocialLinks";
 
 const Footer = () => {
   return (
@@ -19,34 +17,18 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/#Portfolio">
               <a>Portfolio</a>
             </Link>
           </li>
           <li>
-            <Link href="/contact">
+            <Link href="/Contact">
               <a>Contact Me</a>
             </Link>
           </li>
         </ul>
       </nav>
-      <ul className="flex gap-4">
-        <li className="w-6 h-6">
-          <a href="https://github.com/RyanCahela">
-            <GithubLogoSVG />
-          </a>
-        </li>
-        <li className="w-6 h-6">
-          <a href="https://twitter.com/">
-            <TwitterLogoSVG />
-          </a>
-        </li>
-        <li className="w-6 h-6">
-          <a href="https://www.linkedin.com/">
-            <LinkedinLogoSVG />
-          </a>
-        </li>
-      </ul>
+      <SocialLinks />
     </footer>
   );
 };

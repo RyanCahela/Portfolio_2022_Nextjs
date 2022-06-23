@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Backdrop from "./Backdrop";
 
 const navClasses = `
@@ -15,7 +16,7 @@ const navClasses = `
   transition-transform
 `;
 
-const Nav = ({ isOpen }) => {
+const Nav = ({ isOpen, setIsOpen }) => {
   return (
     <>
       <Backdrop isOpen={isOpen} />
@@ -23,9 +24,21 @@ const Nav = ({ isOpen }) => {
         className={`${navClasses}`}
         style={{ transform: isOpen ? "translateX(0)" : "" }}>
         <ul className="flex flex-col gap-4">
-          <li>Home</li>
-          <li>Portfolio</li>
-          <li>Contact Me</li>
+          <li>
+            <Link href="/">
+              <a onClick={(e) => setIsOpen(false)}>Home</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/#Portfolio">
+              <a onClick={(e) => setIsOpen(false)}>Portfolio</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/Contact">
+              <a onClick={(e) => setIsOpen(false)}>Contact Me</a>
+            </Link>
+          </li>
         </ul>
       </nav>
     </>

@@ -16,7 +16,7 @@ const Header = () => {
         onClick={(e) => setIsOpen((prevState) => !prevState)}>
         {isOpen ? <CloseSVG /> : <HamburgerSVG />}
       </div>
-      <Nav isOpen={isOpen} />
+      <Nav isOpen={isOpen} setIsOpen={setIsOpen} />
     </header>
   );
 };

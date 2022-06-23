@@ -24,14 +24,22 @@ const buttonClasses = `
   disabled:cursor-not-allowed
 `;
 
-const PrimaryButton = ({ textContent, disabled = null }) => {
+const PrimaryButton = ({
+  textContent,
+  disabled = null,
+  isIconVisible = true,
+}) => {
   return (
     <button disabled={disabled} className={buttonClasses}>
-      <div className="bg-black/10 h-[48px] w-[48px] flex justify-center items-center">
-        <div className="w-[16px] h-[14px] text-cyan group-hover:text-white group-disabled:text-white">
-          <DownArrowsSVG />
+      {isIconVisible ? (
+        <div className="bg-black/10 h-[48px] w-[48px] flex justify-center items-center">
+          <div className="w-[16px] h-[14px] text-cyan group-hover:text-white group-disabled:text-white">
+            <DownArrowsSVG />
+          </div>
         </div>
-      </div>
+      ) : (
+        ""
+      )}
       <div className="py-4 text-center w-full">{textContent}</div>
     </button>
   );
