@@ -12,11 +12,13 @@ const backdropClasses = `
 
 const backdropActiveClasses = `
   opacity-100
+  pointer-events-auto
 `;
 
-const Backdrop = ({ isOpen }) => {
+const Backdrop = ({ isOpen, setIsOpen }) => {
   return (
     <div
+      onClick={() => setIsOpen(false)}
       className={`${backdropClasses} ${
         isOpen ? backdropActiveClasses : ""
       }`}></div>

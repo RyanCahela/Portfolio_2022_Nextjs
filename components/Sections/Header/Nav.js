@@ -19,7 +19,7 @@ const navClasses = `
 const Nav = ({ isOpen, setIsOpen }) => {
   return (
     <>
-      <Backdrop isOpen={isOpen} />
+      <Backdrop isOpen={isOpen} setIsOpen={setIsOpen} />
       <nav
         className={`${navClasses}`}
         style={{ transform: isOpen ? "translateX(0)" : "" }}>

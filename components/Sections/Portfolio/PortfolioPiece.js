@@ -4,7 +4,6 @@ import Link from "next/link";
 import Title2 from "../../Typography/Title2";
 import Body2 from "../../Typography/Body2";
 import SecondaryButton from "../../Buttons/SecondaryButton";
-import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 
 const PortfolioPiece = ({
   image,

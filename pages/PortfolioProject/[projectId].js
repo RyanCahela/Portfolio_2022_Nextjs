@@ -14,15 +14,8 @@ import Footer from "../../components/Sections/Footer/Footer";
 const PortfolioProject = ({ data }) => {
   const router = useRouter();
   const { projectId } = router.query;
-  const {
-    title,
-    imgSrc,
-    bodyCopy,
-    technologies,
-    projectBackgroundCopy,
-    staticPreviewImgSrc,
-    images,
-  } = data[projectId];
+  const { title, bodyCopy, technologies, projectBackgroundCopy, images } =
+    data[projectId];
   return (
     <div className="px-8 pt-28">
       <Header />
