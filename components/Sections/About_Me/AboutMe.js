@@ -9,7 +9,7 @@ const AboutMe = () => {
   return (
     <section
       id="AboutMe"
-      className="w-full md:flex md:gap-24 md:justify-between">
+      className="w-full md:flex md:gap-24 md:justify-between md:pb-24">
       <div className="w-full relative md:basis-1/3 aspect-square">
         <Image
           src={profilePic}

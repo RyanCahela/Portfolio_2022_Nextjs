@@ -21,7 +21,7 @@ export async function getStaticProps() {
 
 export default function Home({ portfolioData }) {
   return (
-    <div className="space-y-3 px-8 pt-20">
+    <div className="space-y-3 px-8 pt-20 md:px-10">
       <Header />
       <Hero />
       <AboutMe />

@@ -7,17 +7,21 @@ const Portfolio = ({ portfolioData }) => {
     <section className="pt-6">
       <a id="Portfolio" className="relative -top-20"></a>
       <Title2>Portfolio</Title2>
-      <ul className="mt-6 flex flex-col gap-18">
-        {portfolioData.map((data) => (
-          <li key={data.title}>
-            <PortfolioPiece
-              image={data.images.hero}
-              title={data.title}
-              bodyCopy={data.bodyCopy}
-              route={data.route}
-            />
-          </li>
-        ))}
+      <ul className="mt-6 flex flex-col gap-18 md:gap-28">
+        {portfolioData.map((data, index) => {
+          const reverseOrder = index % 2 === 0;
+          return (
+            <li key={data.title}>
+              <PortfolioPiece
+                image={data.images.preview1}
+                title={data.title}
+                bodyCopy={data.bodyCopy}
+                route={data.route}
+                reverseOrder={reverseOrder}
+              />
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

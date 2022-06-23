@@ -10,16 +10,22 @@ const PortfolioPiece = ({
   bodyCopy = "no body copy",
   title = "No title",
   route,
+  reverseOrder = false,
 }) => {
   return (
-    <div>
-      <Image
-        src={image.url}
-        width={image.width}
-        height={image.height}
-        alt={`${title} screenshot`}
-      />
-      <div className="flex flex-col gap-6 mt-8 pt-6 pb-6 border-t border-b border-gray">
+    <div
+      className={`md:flex md:gap-14 ${reverseOrder ? "flex-row-reverse" : ""}`}>
+      <div className="md:basis-1/2 relative w-full aspect-square">
+        <Image
+          src={image.url}
+          width={image.width}
+          height={image.height}
+          alt={`${title} screenshot`}
+          layout="fill"
+          objectFit="contain"
+        />
+      </div>
+      <div className="md:basis-1/2 flex flex-col gap-6 md:mt-0 mt-8 pt-6 pb-6 border-t border-b border-gray">
         <Title2>{title}</Title2>
         <Body2>{bodyCopy}</Body2>
         <div className="self-start">
