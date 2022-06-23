@@ -11,7 +11,6 @@ import path from "path";
 export async function getStaticProps() {
   const filepath = path.join(process.cwd(), "/portfolioData.json");
   const json = await fsPromises.readFile(filepath, { encoding: "utf-8" });
-  console.log("json", json);
 
   const portfolioData = await JSON.parse(json);
 

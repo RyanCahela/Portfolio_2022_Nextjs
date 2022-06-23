@@ -23,7 +23,7 @@ const Nav = ({ isOpen, setIsOpen }) => {
       <nav
         className={`${navClasses}`}
         style={{ transform: isOpen ? "translateX(0)" : "" }}>
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col gap-4 uppercase">
           <li>
             <Link href="/">
               <a onClick={(e) => setIsOpen(false)}>Home</a>
