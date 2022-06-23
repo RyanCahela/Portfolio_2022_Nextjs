@@ -24,7 +24,7 @@ const PortfolioProject = ({ data }) => {
     images,
   } = data[projectId];
   return (
-    <div className="px-8">
+    <div className="px-8 pt-28">
       <Header />
       <Image
         src={images.hero.url}
@@ -81,10 +81,7 @@ const PortfolioProject = ({ data }) => {
 import fsPromises from "fs/promises";
 import path from "path";
 export async function getStaticProps() {
-  const filepath = path.join(
-    process.cwd(),
-    "pages/PortfolioProject/portfolioData.json"
-  );
+  const filepath = path.join(process.cwd(), "/portfolioData.json");
   const json = await fsPromises.readFile(filepath);
   const data = await JSON.parse(json);
 

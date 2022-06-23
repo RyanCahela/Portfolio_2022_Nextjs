@@ -5,13 +5,28 @@ import Portfolio from "../components/Sections/Portfolio/Portfolio";
 import Contact from "../components/Sections/Contact/Contact";
 import Footer from "../components/Sections/Footer/Footer";
 
-export default function Home() {
+import fsPromises from "fs/promises";
+import path from "path";
+
+export async function getStaticProps() {
+  const filepath = path.join(process.cwd(), "/portfolioData.json");
+  const json = await fsPromises.readFile(filepath, { encoding: "utf-8" });
+  console.log("json", json);
+
+  const portfolioData = await JSON.parse(json);
+
+  return {
+    props: { portfolioData },
+  };
+}
+
+export default function Home({ portfolioData }) {
   return (
     <div className="space-y-3 px-8 pt-20">
       <Header />
       <Hero />
       <AboutMe />
-      <Portfolio />
+      <Portfolio portfolioData={portfolioData} />
       <Contact />
       <Footer />
     </div>

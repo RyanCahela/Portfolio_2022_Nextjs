@@ -7,7 +7,7 @@ import SecondaryButton from "../../Buttons/SecondaryButton";
 
 const AboutMe = () => {
   return (
-    <section>
+    <section id="AboutMe" className="">
       <Image src={profilePic} alt="Ryan Cahela portrait" layout="responsive" />
       <div className="mt-8 pt-8 pb-[3.125rem] flex flex-col gap-7 border-t border-b border-gray">
         <Title2>About Me</Title2>
