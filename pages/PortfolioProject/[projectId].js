@@ -25,20 +25,26 @@ const PortfolioProject = ({ data }) => {
         width={images.hero.width}
         height={images.hero.height}
       />
-      <div className="mt-10 py-6 flex flex-col gap-6 border-t-2 border-b-2 border-y-light-gray">
-        <Title1>{title}</Title1>
-        <Body2>{bodyCopy}</Body2>
+      <div className="md:grid md:grid-cols-2 mt-10 py-6 flex flex-col gap-6 border-t-2 border-b-2 border-y-light-gray">
+        <div>
+          <Title1>{title}</Title1>
+        </div>
+        <div className="md:col-start-2 md:col-end-3 md:row-[1/5] place-self-center">
+          <Body2>{bodyCopy}</Body2>
+        </div>
         <div>Interaction Design / Front End Development</div>
-        <div className="flex gap-4 text-cyan">
+        <div className="flex gap-4 text-cyan md:col-start-1">
           {technologies.map((tech) => (
             <span key={tech}>{tech}</span>
           ))}
         </div>
-        <Link href="#">
-          <a>
-            <SecondaryButton textContent="View Website" />
-          </a>
-        </Link>
+        <div className="md:col-start-1">
+          <Link href="#">
+            <a>
+              <SecondaryButton textContent="View Website" />
+            </a>
+          </Link>
+        </div>
       </div>
       <div className="pt-12 flex flex-col gap-7">
         <Title3>Project Background</Title3>
