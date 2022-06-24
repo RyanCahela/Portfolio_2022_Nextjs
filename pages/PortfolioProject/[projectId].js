@@ -19,12 +19,21 @@ const PortfolioProject = ({ data }) => {
   return (
     <div className="px-8 pt-28 max-w-[69.375rem] lg:mx-auto">
       <Header />
-      <Image
-        src={images.hero.url}
-        alt={`${title} screenshot`}
-        width={images.hero.width}
-        height={images.hero.height}
-      />
+      <picture>
+        <source
+          srcSet={images.hero.srcSet.desktop}
+          media={`(min-width: ${images.breakpoints.desktop})`}
+        />
+        <source
+          srcSet={images.hero.srcSet.tablet}
+          media={`(min-width: ${images.breakpoints.tablet})`}
+        />
+        <source
+          srcSet={images.hero.srcSet.mobile}
+          media={`(min-width: ${images.breakpoints.mobile})`}
+        />
+        <img src={images.hero.srcSet.desktop} alt={`${title} screenshot`} />
+      </picture>
       <div className="md:grid md:grid-cols-2 mt-10 py-6 flex flex-col gap-6 border-t-2 border-b-2 border-y-light-gray">
         <div>
           <Title1>{title}</Title1>
@@ -54,20 +63,44 @@ const PortfolioProject = ({ data }) => {
         <Title3>Static Previews</Title3>
         <div className="flex flex-col gap-8">
           <div>
-            <Image
-              src={images.preview1.url}
-              alt={`${title} screenshot`}
-              width={images.preview1.width}
-              height={images.preview1.height}
-            />
+            <picture>
+              <source
+                srcSet={images.preview1.srcSet.desktop}
+                media={`(min-width: ${images.breakpoints.desktop})`}
+              />
+              <source
+                srcSet={images.preview1.srcSet.tablet}
+                media={`(min-width: ${images.breakpoints.tablet})`}
+              />
+              <source
+                srcSet={images.preview1.srcSet.mobile}
+                media={`(min-width: ${images.breakpoints.mobile})`}
+              />
+              <img
+                src={images.preview1.srcSet.desktop}
+                alt={`${title} screenshot`}
+              />
+            </picture>
           </div>
           <div className="w-full relative">
-            <Image
-              src={images.preview2.url}
-              alt={`${title} screenshot`}
-              width={images.preview2.width}
-              height={images.preview2.height}
-            />
+            <picture>
+              <source
+                srcSet={images.preview2.srcSet.desktop}
+                media={`(min-width: ${images.breakpoints.desktop})`}
+              />
+              <source
+                srcSet={images.preview2.srcSet.tablet}
+                media={`(min-width: ${images.breakpoints.tablet})`}
+              />
+              <source
+                srcSet={images.preview2.srcSet.mobile}
+                media={`(min-width: ${images.breakpoints.mobile})`}
+              />
+              <img
+                src={images.preview2.srcSet.desktop}
+                alt={`${title} screenshot`}
+              />
+            </picture>
           </div>
         </div>
       </div>

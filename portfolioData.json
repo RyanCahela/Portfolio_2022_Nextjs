@@ -9,20 +9,38 @@
     "timlapseUrl": "",
     "staticPreviewImgSrc": "",
     "images": {
+      "breakpoints": {
+        "desktop": "900px",
+        "tablet": "768px",
+        "mobile": "0px"
+      },
+      "thumbnail": {
+        "srcSet": {
+          "desktop": "/images/portfolio/desktop/image-portfolio-manage.jpg 540w , /images/portfolio/desktop/image-portfolio-manage@2x.jpg 1080w",
+          "tablet": "/images/portfolio/tablet/image-portfolio-manage.jpg 339w , /images/portfolio/tablet/image-portfolio-manage@2x.jpg 678w",
+          "mobile": "/images/portfolio/mobile/image-portfolio-manage.jpg 339w , /images/portfolio/mobile/image-portfolio-manage@2x.jpg 622w"
+        }
+      },
       "hero": {
-        "url": "/images/detail/desktop/image-manage-hero@2x.jpg",
-        "width": 2220,
-        "height": 1000
+        "srcSet": {
+          "desktop": "/images/detail/desktop/image-manage-hero.jpg 1110w , /images/detail/desktop/image-manage-hero@2x.jpg 2220w",
+          "tablet": "/images/detail/tablet/image-manage-hero.jpg 689w , /images/detail/tablet/image-manage-hero@2x.jpg 1378w",
+          "mobile": "/images/detail/mobile/image-manage-hero.jpg 311w , /images/detail/mobile/image-manage-hero@2x.jpg 622w"
+        }
       },
       "preview1": {
-        "url": "/images/detail/desktop/image-manage-preview-1@2x.jpg",
-        "width": 1270,
-        "height": 800
+        "srcSet": {
+          "desktop": "/images/detail/desktop/image-manage-preview-1.jpg 635w , /images/detail/desktop/image-manage-preview-1@2x.jpg 1270w",
+          "tablet": "/images/detail/tablet/image-manage-preview-1.jpg 689w , /images/detail/tablet/image-manage-preview-1@2x.jpg 1378w",
+          "mobile": "/images/detail/mobile/image-manage-preview-1.jpg 313w , /images/detail/mobile/image-manage-preview-1@2x.jpg 626w"
+        }
       },
       "preview2": {
-        "url": "/images/detail/desktop/image-manage-preview-2@2x.jpg",
-        "width": 1270,
-        "height": 800
+        "srcSet": {
+          "desktop": "/images/detail/desktop/image-manage-preview-2.jpg 635w , /images/detail/desktop/image-manage-preview-2@2x.jpg 1270w",
+          "tablet": "/images/detail/tablet/image-manage-preview-2.jpg 689w , /images/detail/tablet/image-manage-preview-2@2x.jpg 1378w",
+          "mobile": "/images/detail/mobile/image-manage-preview-2.jpg 313w , /images/detail/mobile/image-manage-preview-2@2x.jpg 626w"
+        }
       }
     }
   },
@@ -36,20 +54,38 @@
     "timlapseUrl": "",
     "staticPreviewImgSrc": "",
     "images": {
+      "breakpoints": {
+        "desktop": "900px",
+        "tablet": "768px",
+        "mobile": "0px"
+      },
+      "thumbnail": {
+        "srcSet": {
+          "desktop": "/images/portfolio/desktop/image-portfolio-bookmark.jpg 540w , /images/portfolio/desktop/image-portfolio-bookmark@2x.jpg 1080w",
+          "tablet": "/images/portfolio/tablet/image-portfolio-bookmark.jpg 339w , /images/portfolio/tablet/image-portfolio-bookmark@2x.jpg 678w",
+          "mobile": "/images/portfolio/mobile/image-portfolio-bookmark.jpg 339w , /images/portfolio/mobile/image-portfolio-bookmark@2x.jpg 622w"
+        }
+      },
       "hero": {
-        "url": "/images/detail/desktop/image-bookmark-hero@2x.jpg",
-        "width": 2220,
-        "height": 1000
+        "srcSet": {
+          "desktop": "/images/detail/desktop/image-bookmark-hero.jpg 1110w , /images/detail/desktop/image-bookmark-hero@2x.jpg 2220w",
+          "tablet": "/images/detail/tablet/image-bookmark-hero.jpg 689w , /images/detail/tablet/image-bookmark-hero@2x.jpg 1378w",
+          "mobile": "/images/detail/mobile/image-bookmark-hero.jpg 311w , /images/detail/mobile/image-bookmark-hero@2x.jpg 622w"
+        }
       },
       "preview1": {
-        "url": "/images/detail/desktop/image-bookmark-preview-1@2x.jpg",
-        "width": 1270,
-        "height": 800
+        "srcSet": {
+          "desktop": "/images/detail/desktop/image-bookmark-preview-1.jpg 635w , /images/detail/desktop/image-bookmark-preview-1@2x.jpg 1270w",
+          "tablet": "/images/detail/tablet/image-bookmark-preview-1.jpg 689w , /images/detail/tablet/image-bookmark-preview-1@2x.jpg 1378w",
+          "mobile": "/images/detail/mobile/image-bookmark-preview-1.jpg 313w , /images/detail/mobile/image-bookmark-preview-1@2x.jpg 626w"
+        }
       },
       "preview2": {
-        "url": "/images/detail/desktop/image-bookmark-preview-2@2x.jpg",
-        "width": 1270,
-        "height": 800
+        "srcSet": {
+          "desktop": "/images/detail/desktop/image-bookmark-preview-2.jpg 635w , /images/detail/desktop/image-bookmark-preview-2@2x.jpg 1270w",
+          "tablet": "/images/detail/tablet/image-bookmark-preview-2.jpg 689w , /images/detail/tablet/image-bookmark-preview-2@2x.jpg 1378w",
+          "mobile": "/images/detail/mobile/image-bookmark-preview-2.jpg 313w , /images/detail/mobile/image-bookmark-preview-2@2x.jpg 626w"
+        }
       }
     }
   }

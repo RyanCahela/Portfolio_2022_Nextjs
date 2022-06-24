@@ -13,7 +13,8 @@ const Portfolio = ({ portfolioData }) => {
           return (
             <li key={data.title}>
               <PortfolioPiece
-                image={data.images.preview1}
+                breakpoints={data.images.breakpoints}
+                srcSet={data.images.thumbnail.srcSet}
                 title={data.title}
                 bodyCopy={data.bodyCopy}
                 route={data.route}
