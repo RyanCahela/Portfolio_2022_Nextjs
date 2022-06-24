@@ -10,17 +10,17 @@
     "staticPreviewImgSrc": "",
     "images": {
       "hero": {
-        "url": "/../public/images/detail/desktop/image-manage-hero@2x.jpg",
+        "url": "/images/detail/desktop/image-manage-hero@2x.jpg",
         "width": 2220,
         "height": 1000
       },
       "preview1": {
-        "url": "/../public/images/detail/desktop/image-manage-preview-1@2x.jpg",
+        "url": "/images/detail/desktop/image-manage-preview-1@2x.jpg",
         "width": 1270,
         "height": 800
       },
       "preview2": {
-        "url": "/../public/images/detail/desktop/image-manage-preview-2@2x.jpg",
+        "url": "/images/detail/desktop/image-manage-preview-2@2x.jpg",
         "width": 1270,
         "height": 800
       }
@@ -37,17 +37,17 @@
     "staticPreviewImgSrc": "",
     "images": {
       "hero": {
-        "url": "/../public/images/detail/desktop/image-bookmark-hero@2x.jpg",
+        "url": "/images/detail/desktop/image-bookmark-hero@2x.jpg",
         "width": 2220,
         "height": 1000
       },
       "preview1": {
-        "url": "/../public/images/detail/desktop/image-bookmark-preview-1@2x.jpg",
+        "url": "/images/detail/desktop/image-bookmark-preview-1@2x.jpg",
         "width": 1270,
         "height": 800
       },
       "preview2": {
-        "url": "/../public/images/detail/desktop/image-bookmark-preview-2@2x.jpg",
+        "url": "/images/detail/desktop/image-bookmark-preview-2@2x.jpg",
         "width": 1270,
         "height": 800
       }

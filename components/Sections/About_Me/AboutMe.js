@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Title2 from "../../Typography/Title2";
 import Body1 from "../../Typography/Body1";
 import profilePic from "../../../public/images/homepage/desktop/image-homepage-profile@2x.jpg";
@@ -13,8 +14,6 @@ const AboutMe = () => {
       <div className="w-full relative md:basis-1/3 aspect-square">
         <Image
           src={profilePic}
-          height={1200}
-          width={1080}
           alt="Ryan Cahela portrait"
           layout="fill"
           objectFit="cover"
@@ -34,7 +33,11 @@ const AboutMe = () => {
           for a walk, run or cycling. I&apos;d love you to check out my work.
         </Body1>
         <div className="mt-6">
-          <SecondaryButton textContent="Go To Portfolio" href="#" />
+          <Link href="#Portfolio">
+            <a>
+              <SecondaryButton textContent="Go To Portfolio" />
+            </a>
+          </Link>
         </div>
       </div>
     </section>

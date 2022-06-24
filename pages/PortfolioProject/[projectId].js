@@ -17,7 +17,7 @@ const PortfolioProject = ({ data }) => {
   const { title, bodyCopy, technologies, projectBackgroundCopy, images } =
     data[projectId];
   return (
-    <div className="px-8 pt-28">
+    <div className="px-8 pt-28 max-w-[69.375rem] lg:mx-auto">
       <Header />
       <Image
         src={images.hero.url}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import MainLogoSVG from "../../Logos/MainLogoSVG";
 import HamburgerSVG from "../../Icons/HamburgerSVG";
 import CloseSVG from "../../Icons/CloseSVG";
@@ -19,12 +20,19 @@ const headerClasses = `
   justify-between
   items-center
 
+  max-w-[1110px]
+  lg:mx-auto
+
   ${/*Colors */ ""}
   bg-white
 `;
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { asPath } = useRouter();
+
+  console.log(asPath);
+
   return (
     <header className={headerClasses}>
       <div className="md:hidden">
@@ -53,12 +61,20 @@ const Header = () => {
             </li>
             <li>
               <Link href="/#Portfolio">
-                <a onClick={(e) => setIsOpen(false)}>Portfolio</a>
+                <a
+                  onClick={(e) => setIsOpen(false)}
+                  className={`${asPath === "/#Portfolio" ? "text-cyan" : ""}`}>
+                  Portfolio
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/Contact">
-                <a onClick={(e) => setIsOpen(false)}>Contact Me</a>
+                <a
+                  onClick={(e) => setIsOpen(false)}
+                  className={`${asPath === "/Contact" ? "text-cyan" : ""}`}>
+                  Contact Me
+                </a>
               </Link>
             </li>
           </ul>

@@ -12,7 +12,7 @@ import PrimaryButton from "../components/Buttons/PrimaryButton";
 
 const Contact = () => {
   return (
-    <div className="pt-24 px-8">
+    <div className="pt-24 px-8 max-w-[69.375rem] lg:mx-auto">
       <Header />
       <div className="border-t-2 flex flex-col gap-6 border-t-light-gray pt-6 pb-8">
         <Title2>Get in Touch</Title2>

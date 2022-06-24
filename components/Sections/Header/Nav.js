@@ -17,12 +17,14 @@ const navClasses = `
 `;
 
 const Nav = ({ isOpen, setIsOpen }) => {
+  const styleObj = {
+    transform: isOpen ? "translateX(0)" : "",
+  };
+
   return (
     <>
       <Backdrop isOpen={isOpen} setIsOpen={setIsOpen} />
-      <nav
-        className={`${navClasses}`}
-        style={{ transform: isOpen ? "translateX(0)" : "" }}>
+      <nav className={`${navClasses}`} style={styleObj}>
         <ul className="flex flex-col gap-4 uppercase">
           <li>
             <Link href="/">

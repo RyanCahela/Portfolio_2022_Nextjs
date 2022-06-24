@@ -28,7 +28,7 @@ const Footer = () => {
           </li>
         </ul>
       </nav>
-      <div className="ml-auto">
+      <div className="md:ml-auto">
         <SocialLinks />
       </div>
     </footer>
