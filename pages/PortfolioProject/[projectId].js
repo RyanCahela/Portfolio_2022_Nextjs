@@ -34,73 +34,79 @@ const PortfolioProject = ({ data }) => {
         />
         <img src={images.hero.srcSet.desktop} alt={`${title} screenshot`} />
       </picture>
-      <div className="md:grid md:grid-cols-2 mt-10 py-6 flex flex-col gap-6 border-t-2 border-b-2 border-y-light-gray">
-        <div>
-          <Title1>{title}</Title1>
-        </div>
-        <div className="md:col-start-2 md:col-end-3 md:row-[1/5] place-self-center">
-          <Body2>{bodyCopy}</Body2>
-        </div>
-        <div>Interaction Design / Front End Development</div>
-        <div className="flex gap-4 text-cyan md:col-start-1">
-          {technologies.map((tech) => (
-            <span key={tech}>{tech}</span>
-          ))}
-        </div>
-        <div className="md:col-start-1">
-          <Link href="#">
-            <a>
-              <SecondaryButton textContent="View Website" />
-            </a>
-          </Link>
-        </div>
-      </div>
-      <div className="pt-12 flex flex-col gap-7">
-        <Title3>Project Background</Title3>
-        <Body2>{projectBackgroundCopy}</Body2>
-      </div>
-      <div className="pt-10 flex flex-col gap-10">
-        <Title3>Static Previews</Title3>
-        <div className="flex flex-col gap-8">
-          <div>
-            <picture>
-              <source
-                srcSet={images.preview1.srcSet.desktop}
-                media={`(min-width: ${images.breakpoints.desktop})`}
-              />
-              <source
-                srcSet={images.preview1.srcSet.tablet}
-                media={`(min-width: ${images.breakpoints.tablet})`}
-              />
-              <source
-                srcSet={images.preview1.srcSet.mobile}
-                media={`(min-width: ${images.breakpoints.mobile})`}
-              />
-              <img
-                src={images.preview1.srcSet.desktop}
-                alt={`${title} screenshot`}
-              />
-            </picture>
+      <div className="lg:grid grid-cols-2">
+        <div className="lg:col-start-1 lg:col-end-2">
+          <div className="lg:flex lg:flex-col md:grid md:grid-cols-2 mt-10 py-6 flex flex-col gap-6 border-t-2 border-b-2 border-y-light-gray">
+            <div>
+              <Title1>{title}</Title1>
+            </div>
+            <div className="md:col-start-2 md:col-end-3 md:row-[1/5] place-self-center">
+              <Body2>{bodyCopy}</Body2>
+            </div>
+            <div>Interaction Design / Front End Development</div>
+            <div className="flex gap-4 text-cyan md:col-start-1">
+              {technologies.map((tech) => (
+                <span key={tech}>{tech}</span>
+              ))}
+            </div>
+            <div className="md:col-start-1">
+              <Link href="#">
+                <a>
+                  <SecondaryButton textContent="View Website" />
+                </a>
+              </Link>
+            </div>
           </div>
-          <div className="w-full relative">
-            <picture>
-              <source
-                srcSet={images.preview2.srcSet.desktop}
-                media={`(min-width: ${images.breakpoints.desktop})`}
-              />
-              <source
-                srcSet={images.preview2.srcSet.tablet}
-                media={`(min-width: ${images.breakpoints.tablet})`}
-              />
-              <source
-                srcSet={images.preview2.srcSet.mobile}
-                media={`(min-width: ${images.breakpoints.mobile})`}
-              />
-              <img
-                src={images.preview2.srcSet.desktop}
-                alt={`${title} screenshot`}
-              />
-            </picture>
+        </div>
+        <div className="lg:col-start-2 lg:col-end-3">
+          <div className="pt-12 flex flex-col gap-7">
+            <Title3>Project Background</Title3>
+            <Body2>{projectBackgroundCopy}</Body2>
+          </div>
+          <div className="pt-10 flex flex-col gap-10">
+            <Title3>Static Previews</Title3>
+            <div className="flex flex-col gap-8">
+              <div>
+                <picture>
+                  <source
+                    srcSet={images.preview1.srcSet.desktop}
+                    media={`(min-width: ${images.breakpoints.desktop})`}
+                  />
+                  <source
+                    srcSet={images.preview1.srcSet.tablet}
+                    media={`(min-width: ${images.breakpoints.tablet})`}
+                  />
+                  <source
+                    srcSet={images.preview1.srcSet.mobile}
+                    media={`(min-width: ${images.breakpoints.mobile})`}
+                  />
+                  <img
+                    src={images.preview1.srcSet.desktop}
+                    alt={`${title} screenshot`}
+                  />
+                </picture>
+              </div>
+              <div className="w-full relative">
+                <picture>
+                  <source
+                    srcSet={images.preview2.srcSet.desktop}
+                    media={`(min-width: ${images.breakpoints.desktop})`}
+                  />
+                  <source
+                    srcSet={images.preview2.srcSet.tablet}
+                    media={`(min-width: ${images.breakpoints.tablet})`}
+                  />
+                  <source
+                    srcSet={images.preview2.srcSet.mobile}
+                    media={`(min-width: ${images.breakpoints.mobile})`}
+                  />
+                  <img
+                    src={images.preview2.srcSet.desktop}
+                    alt={`${title} screenshot`}
+                  />
+                </picture>
+              </div>
+            </div>
           </div>
         </div>
       </div>
