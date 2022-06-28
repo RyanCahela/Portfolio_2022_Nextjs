@@ -7,3 +7,71 @@
 *:after {
   box-sizing: border-box;
 }
+
+@layer utilities {
+  .cut-corners {
+    --background-color: lightgray;
+    --border-width: 0.2em;
+    --edge-size: 1.5em;
+
+    position: relative;
+    clip-path: polygon(
+      /* top left 1 */ var(--edge-size) 0,
+      /* top right */ 100% 0,
+      /* bottom right 1 */ 100% calc(100% - var(--edge-size)),
+      /* bottom right 2 */ calc(100% - var(--edge-size)) 100%,
+      /* bottom left */ 0 100%,
+      /* top left 2 */ 0 var(--edge-size)
+    );
+  }
+
+  .cut-corners::before,
+  .cut-corners::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 100%;
+  }
+
+  .cut-corners::before {
+    @apply bg-grayish-dark-blue;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .cut-corners::after {
+    background-color: white;
+    inset: 0;
+    z-index: -1;
+    clip-path: polygon(
+      /* top left 1 */ calc(var(--edge-size) + var(--border-width) * 0.25)
+        var(--border-width),
+      /* top right */ calc(100% - var(--border-width)) var(--border-width),
+      /* bottom right 1 */ calc(100% - var(--border-width))
+        calc(100% - var(--edge-size) - var(--border-width) * 0.25),
+      /* bottom right 2 */
+        calc(100% - var(--edge-size) - var(--border-width) * 0.25)
+        calc(100% - var(--border-width)),
+      /* bottom left */ var(--border-width) calc(100% - var(--border-width)),
+      /* top left 2 */ var(--border-width) var(--edge-size)
+    );
+    transition: clip-path 300ms;
+  }
+
+  .cut-corners:where(:hover, :focus)::after {
+    clip-path: polygon(
+      /* top left 1 */ calc(100% - var(--border-width))
+        calc(100% - var(--edge-size) - var(--border-width) * 0.25),
+      /* top right */ calc(100% - var(--border-width)) var(--border-width),
+      /* bottom right 1 */ calc(100% - var(--border-width))
+        calc(100% - var(--edge-size) - var(--border-width) * 0.25),
+      /* bottom right 2 */
+        calc(100% - var(--edge-size) - var(--border-width) * 0.25)
+        calc(100% - var(--border-width)),
+      /* bottom left */ var(--border-width) calc(100% - var(--border-width)),
+      /* top left 2 */
+        calc(100% - var(--edge-size) - var(--border-width) * 0.25)
+        calc(100% - var(--border-width))
+    );
+  }
+}
