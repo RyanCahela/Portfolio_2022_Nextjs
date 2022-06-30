@@ -23,14 +23,14 @@ const AboutMe = () => {
       <div className="md:basis-2/3 mt-8 md:mt-0 pt-8 pb-[3.125rem] flex flex-col gap-7 border-t border-b border-gray">
         <Title2>About Me</Title2>
         <Body1>
-          I&apos;m a junior front-end developer looking for a new role in an
-          exciting company. I focus on writing accessible HTML, using modern CSS
+          I’m a front-end developer looking for a new role in an exciting
+          company. I focus on writing accessible HTML, using modern CSS
           practices and writing clean JavaScript. When writing JavaScript code,
           I mostly use React, but I can adapt to whatever tools are required.
-          I&apos;m based in London, UK, but I&apos;m happy working remotely and
-          have experience in remote teams. When I&apos;m not coding, you&apos;ll
-          find me outdoors. I love being out in nature whether that&apos;s going
-          for a walk, run or cycling. I&apos;d love you to check out my work.
+          I’m based in Los Angeles, California, but I’m happy working remotely
+          and have experience in remote teams. When I’m not coding, you’ll find
+          me at the rock climbing gym or making Youtube videos. I’d love you to
+          check out my work.
         </Body1>
         <div className="mt-6">
           <Link href="#Portfolio">
