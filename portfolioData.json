@@ -1,10 +1,19 @@
 [
   {
-    "title": "Manage",
-    "bodyCopy": "This project required me to build a fully responsive landing page to the designs provided. I used HTML5, along with CSS Grid and JavaScript for the areas that required interactivity, such as the testimonial slider.",
+    "title": "Entertainment App",
+    "bodyCopy": "I used a design from frontend mentor to build this app. The frontend is built with React and Styled Components. It calls a backend Express API I built to serve the thumbnail images and json data. The frontend state is managed with a useReducer hook and I had a fun time learning about node readable and writable streams to serve the images and data over http.",
     "route": "/PortfolioProject/0",
-    "technologies": ["HTML", "CSS", "Javscript"],
-    "externalUrl": "http://ryancahela.com",
+    "technologies": [
+      { "iconLookupKey": "react", "text": "React.js" },
+      { "iconLookupKey": "styledComponents", "text": "Styled Components" },
+      { "iconLookupKey": "node", "text": "Node/Express" }
+    ],
+    "externalUrls": {
+      "frontendLive": "https://ryan-cahela-entertainment-web-app.netlify.app/",
+      "backendLive": "https://ryan-entertainment-web-app.herokuapp.com/",
+      "frontendRepo": "https://github.com/RyanCahela/Entertainment_Web_App",
+      "backendRepo": "https://github.com/RyanCahela/Entertainment_Web_App_Backend"
+    },
     "projectBackgroundCopy": "This project was a front-end  challenge from Frontend Mentor. It&apos;s a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I&apos;ve learned something new with each project, helping me to improve and adapt my style.",
     "timlapseUrl": "",
     "staticPreviewImgSrc": "",

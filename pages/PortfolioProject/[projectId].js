@@ -10,12 +10,19 @@ import Body2 from "../../components/Typography/Body2";
 import SecondaryButton from "../../components/Buttons/SecondaryButton";
 import Contact from "../../components/Sections/Contact/Contact";
 import Footer from "../../components/Sections/Footer/Footer";
+import iconLookupTable from "../../components/Icons/IconLookupTable";
 
 const PortfolioProject = ({ data }) => {
   const router = useRouter();
   const { projectId } = router.query;
-  const { title, bodyCopy, technologies, projectBackgroundCopy, images } =
-    data[projectId];
+  const {
+    title,
+    bodyCopy,
+    technologies,
+    projectBackgroundCopy,
+    images,
+    externalUrls,
+  } = data[projectId];
   return (
     <div className="px-8 pt-28 max-w-[69.375rem] lg:mx-auto">
       <Header />
@@ -34,7 +41,7 @@ const PortfolioProject = ({ data }) => {
         />
         <img src={images.hero.srcSet.desktop} alt={`${title} screenshot`} />
       </picture>
-      <div className="lg:grid grid-cols-2">
+      <div className="lg:grid grid-cols-2 gap-x-32">
         <div className="lg:col-start-1 lg:col-end-2">
           <div className="lg:flex lg:flex-col md:grid md:grid-cols-2 mt-10 py-6 flex flex-col gap-6 border-t-2 border-b-2 border-y-light-gray">
             <div>
@@ -44,17 +51,34 @@ const PortfolioProject = ({ data }) => {
               <Body2>{bodyCopy}</Body2>
             </div>
             <div>Interaction Design / Front End Development</div>
-            <div className="flex gap-4 text-cyan md:col-start-1">
-              {technologies.map((tech) => (
-                <span key={tech}>{tech}</span>
+            <div className="flex flex-col gap-2 text-cyan md:col-start-1">
+              {technologies.map(({ text, iconLookupKey }) => (
+                <div key={text} className="flex gap-1">
+                  <div className="w-[20px]">
+                    {iconLookupTable[iconLookupKey]}
+                  </div>
+                  <div>{text}</div>
+                </div>
               ))}
             </div>
-            <div className="md:col-start-1">
-              <Link href="#">
+            <div className="md:col-start-1 flex flex-col gap-4">
+              <Link href={externalUrls.frontendLive}>
                 <a>
                   <SecondaryButton textContent="View Website" />
                 </a>
               </Link>
+              <div className="contents md:flex md:gap-4">
+                <Link href={externalUrls.frontendRepo}>
+                  <a>
+                    <SecondaryButton textContent="View Frontend Repo" />
+                  </a>
+                </Link>
+                <Link href={externalUrls.backendRepo}>
+                  <a>
+                    <SecondaryButton textContent="View Backend Repo" />
+                  </a>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
