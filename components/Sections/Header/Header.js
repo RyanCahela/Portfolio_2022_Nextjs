@@ -27,11 +27,29 @@ const headerClasses = `
   bg-white
 `;
 
+const headerLinkClasses = `
+  relative
+  pb-1
+  px-1
+  z-10
+
+  before:w-0
+  before:bottom-0
+  before:left-0
+  before:absolute
+  hover:before:w-full
+  before:h-1
+  before:bg-cyan
+
+  motion-safe:before:transition-[width]
+  
+`;
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { asPath } = useRouter();
 
-  console.log(asPath);
+  //used for highlighting when path matches link
+  const { asPath } = useRouter();
 
   return (
     <header className={headerClasses}>
@@ -54,12 +72,12 @@ const Header = () => {
           className="ml-auto"
           style={{ transform: isOpen ? "translateX(0)" : "" }}>
           <ul className="flex gap-10 uppercase">
-            <li>
+            <li className={headerLinkClasses}>
               <Link href="/">
                 <a onClick={(e) => setIsOpen(false)}>Home</a>
               </Link>
             </li>
-            <li>
+            <li className={headerLinkClasses}>
               <Link href="/#Portfolio">
                 <a
                   onClick={(e) => setIsOpen(false)}
@@ -68,7 +86,7 @@ const Header = () => {
                 </a>
               </Link>
             </li>
-            <li>
+            <li className={headerLinkClasses}>
               <Link href="/Contact">
                 <a
                   onClick={(e) => setIsOpen(false)}

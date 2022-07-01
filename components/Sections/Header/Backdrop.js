@@ -6,7 +6,7 @@ const backdropClasses = `
   fixed
   inset-0
   opacity-0
-  transition-opacity
+  motion-safe:transition-opacity
   pointer-events-none
 `;
 
