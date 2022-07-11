@@ -32,6 +32,11 @@ const Nav = ({ isOpen, setIsOpen }) => {
             </Link>
           </li>
           <li>
+            <Link href="/#Youtube">
+              <a onClick={(e) => setIsOpen(false)}>Youtube</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/#Portfolio">
               <a onClick={(e) => setIsOpen(false)}>Portfolio</a>
             </Link>

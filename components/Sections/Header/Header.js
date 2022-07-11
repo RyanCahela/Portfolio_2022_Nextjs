@@ -78,6 +78,15 @@ const Header = () => {
               </Link>
             </li>
             <li className={headerLinkClasses}>
+              <Link href="/#Youtube">
+                <a
+                  onClick={(e) => setIsOpen(false)}
+                  className={`${asPath === "/#Youtube" ? "text-cyan" : ""}`}>
+                  Youtube
+                </a>
+              </Link>
+            </li>
+            <li className={headerLinkClasses}>
               <Link href="/#Portfolio">
                 <a
                   onClick={(e) => setIsOpen(false)}
