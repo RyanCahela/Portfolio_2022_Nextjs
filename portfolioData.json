@@ -25,30 +25,30 @@
       },
       "thumbnail": {
         "srcSet": {
-          "desktop": "/images/portfolio/desktop/image-portfolio-manage.jpg 540w , /images/portfolio/desktop/image-portfolio-manage@2x.jpg 1080w",
-          "tablet": "/images/portfolio/tablet/image-portfolio-manage.jpg 339w , /images/portfolio/tablet/image-portfolio-manage@2x.jpg 678w",
-          "mobile": "/images/portfolio/mobile/image-portfolio-manage.jpg 339w , /images/portfolio/mobile/image-portfolio-manage@2x.jpg 622w"
+          "desktop": "/images/portfolio/desktop/image-portfolio-thumbnail-entertainment.png 540w , /images/portfolio/desktop/image-portfolio-thumbnail-entertainment@2x.png 1080w",
+          "tablet": "/images/portfolio/tablet/image-portfolio-thumbnail-entertainment.png 339w , /images/portfolio/tablet/image-portfolio-thumbnail-entertainment@2X.png 678w",
+          "mobile": "/images/portfolio/mobile/image-portfolio-thumbnail-entertainment.png 311w , /images/portfolio/mobile/image-portfolio-thumbnail-entertainment@2X.png 622w"
         }
       },
       "hero": {
         "srcSet": {
-          "desktop": "/images/detail/desktop/image-manage-hero.jpg 1110w , /images/detail/desktop/image-manage-hero@2x.jpg 2220w",
-          "tablet": "/images/detail/tablet/image-manage-hero.jpg 689w , /images/detail/tablet/image-manage-hero@2x.jpg 1378w",
-          "mobile": "/images/detail/mobile/image-manage-hero.jpg 311w , /images/detail/mobile/image-manage-hero@2x.jpg 622w"
+          "desktop": "/images/detail/desktop/image-portfolio-hero-entertainment.png 1110w , /images/detail/desktop/image-portfolio-hero-entertainment@2X.png 2220w",
+          "tablet": "/images/detail/tablet/image-portfolio-hero-entertainment.png 689w , /images/detail/tablet/image-portfolio-hero-entertainment@2X.png 1378w",
+          "mobile": "/images/detail/mobile/image-portfolio-hero-entertainment.png 311w , /images/detail/mobile/image-portfolio-hero-entertainment@2X.png 622w"
         }
       },
       "preview1": {
         "srcSet": {
-          "desktop": "/images/detail/desktop/image-manage-preview-1.jpg 635w , /images/detail/desktop/image-manage-preview-1@2x.jpg 1270w",
-          "tablet": "/images/detail/tablet/image-manage-preview-1.jpg 689w , /images/detail/tablet/image-manage-preview-1@2x.jpg 1378w",
-          "mobile": "/images/detail/mobile/image-manage-preview-1.jpg 313w , /images/detail/mobile/image-manage-preview-1@2x.jpg 626w"
+          "desktop": "/images/detail/desktop/image-portfolio-preview-1-entertainment.png 635w , /images/detail/desktop/image-portfolio-preview-1-entertainment@2X.png 1270w",
+          "tablet": "/images/detail/tablet/image-portfolio-preview-1-entertainment.png 689w , /images/detail/tablet/image-portfolio-preview-1-entertainment@2X.png 1378w",
+          "mobile": "/images/detail/mobile/image-portfolio-preview-1-entertainment.png 313w , /images/detail/mobile/image-portfolio-preview-1-entertainment@2X.png 626w"
         }
       },
       "preview2": {
         "srcSet": {
-          "desktop": "/images/detail/desktop/image-manage-preview-2.jpg 635w , /images/detail/desktop/image-manage-preview-2@2x.jpg 1270w",
-          "tablet": "/images/detail/tablet/image-manage-preview-2.jpg 689w , /images/detail/tablet/image-manage-preview-2@2x.jpg 1378w",
-          "mobile": "/images/detail/mobile/image-manage-preview-2.jpg 313w , /images/detail/mobile/image-manage-preview-2@2x.jpg 626w"
+          "desktop": "/images/detail/desktop/image-portfolio-preview-2-entertainment.png 635w , /images/detail/desktop/image-portfolio-preview-2-entertainment@2X.png 1270w",
+          "tablet": "/images/detail/tablet/image-portfolio-preview-2-entertainment.png 689w , /images/detail/tablet/image-portfolio-preview-2-entertainment@2X.png 1378w",
+          "mobile": "/images/detail/mobile/image-portfolio-preview-2-entertainment.png 313w , /images/detail/mobile/image-portfolio-preview-2-entertainment@2X.png 626w"
         }
       }
     }
