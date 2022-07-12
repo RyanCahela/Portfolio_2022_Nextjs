@@ -57,8 +57,17 @@
     "title": "Bookmark",
     "bodyCopy": "This project required me to build a fully responsive landing page to the designs provided. I used HTML5, along with CSS Grid and JavaScript for the areas that required interactivity, such as the testimonial slider.",
     "route": "/PortfolioProject/1",
-    "technologies": ["HTML", "CSS", "Javscript"],
-    "externalUrl": "http://ryancahela.com",
+    "technologies": [
+      { "iconLookupKey": "react", "text": "React.js" },
+      { "iconLookupKey": "styledComponents", "text": "Styled Components" },
+      { "iconLookupKey": "node", "text": "Node/Express" }
+    ],
+    "externalUrls": {
+      "frontendLive": "https://hilarious-muffin-6e9500.netlify.app/",
+      "backendRepo": "https://github.com/RyanCahela/Intro_Section_With_Dropdown",
+      "frontendRepo": "",
+      "backendLive": ""
+    },
     "projectBackgroundCopy": "This project was a front-end  challenge from Frontend Mentor. It&apos;s a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I&apos;ve learned something new with each project, helping me to improve and adapt my style.",
     "timlapseUrl": "",
     "staticPreviewImgSrc": "",
@@ -70,30 +79,30 @@
       },
       "thumbnail": {
         "srcSet": {
-          "desktop": "/images/portfolio/desktop/image-portfolio-bookmark.jpg 540w , /images/portfolio/desktop/image-portfolio-bookmark@2x.jpg 1080w",
-          "tablet": "/images/portfolio/tablet/image-portfolio-bookmark.jpg 339w , /images/portfolio/tablet/image-portfolio-bookmark@2x.jpg 678w",
-          "mobile": "/images/portfolio/mobile/image-portfolio-bookmark.jpg 339w , /images/portfolio/mobile/image-portfolio-bookmark@2x.jpg 622w"
+          "desktop": "/images/portfolio/desktop/image-portfolio-thumbnail-remote.png 540w , /images/portfolio/desktop/image-portfolio-thumbnail-remote@2X.png 1080w",
+          "tablet": "/images/portfolio/tablet/image-portfolio-thumbnail-remote.png 339w , /images/portfolio/tablet/image-portfolio-thumbnail-remote@2X.png 678w",
+          "mobile": "/images/portfolio/mobile/image-portfolio-thumbnail-remote.png 339w , /images/portfolio/mobile/image-portfolio-thumbnail-remote@2X.png 622w"
         }
       },
       "hero": {
         "srcSet": {
-          "desktop": "/images/detail/desktop/image-bookmark-hero.jpg 1110w , /images/detail/desktop/image-bookmark-hero@2x.jpg 2220w",
-          "tablet": "/images/detail/tablet/image-bookmark-hero.jpg 689w , /images/detail/tablet/image-bookmark-hero@2x.jpg 1378w",
-          "mobile": "/images/detail/mobile/image-bookmark-hero.jpg 311w , /images/detail/mobile/image-bookmark-hero@2x.jpg 622w"
+          "desktop": "/images/detail/desktop/image-portfolio-hero-remote.png 1110w , /images/detail/desktop/image-portfolio-hero-remote@2x.png 2220w",
+          "tablet": "/images/detail/tablet/image-portfolio-hero-remote.png 689w , /images/detail/tablet/image-portfolio-hero-remote@2x.png 1378w",
+          "mobile": "/images/detail/mobile/image-portfolio-hero-remote.png 311w , /images/detail/mobile/image-portfolio-hero-remote@2x.png 622w"
         }
       },
       "preview1": {
         "srcSet": {
-          "desktop": "/images/detail/desktop/image-bookmark-preview-1.jpg 635w , /images/detail/desktop/image-bookmark-preview-1@2x.jpg 1270w",
-          "tablet": "/images/detail/tablet/image-bookmark-preview-1.jpg 689w , /images/detail/tablet/image-bookmark-preview-1@2x.jpg 1378w",
-          "mobile": "/images/detail/mobile/image-bookmark-preview-1.jpg 313w , /images/detail/mobile/image-bookmark-preview-1@2x.jpg 626w"
+          "desktop": "/images/detail/desktop/image-portfolio-preview-1-remote.png 635w , /images/detail/desktop/image-portfolio-preview-1-remote@2x.png 1270w",
+          "tablet": "/images/detail/tablet/image-portfolio-preview-1-remote.png 689w , /images/detail/tablet/image-portfolio-preview-1-remote@2x.png 1378w",
+          "mobile": "/images/detail/mobile/image-portfolio-preview-1-remote.png 313w , /images/detail/mobile/image-portfolio-preview-1-remote@2x.png 626w"
         }
       },
       "preview2": {
         "srcSet": {
-          "desktop": "/images/detail/desktop/image-bookmark-preview-2.jpg 635w , /images/detail/desktop/image-bookmark-preview-2@2x.jpg 1270w",
-          "tablet": "/images/detail/tablet/image-bookmark-preview-2.jpg 689w , /images/detail/tablet/image-bookmark-preview-2@2x.jpg 1378w",
-          "mobile": "/images/detail/mobile/image-bookmark-preview-2.jpg 313w , /images/detail/mobile/image-bookmark-preview-2@2x.jpg 626w"
+          "desktop": "/images/detail/desktop/image-portfolio-preview-2-remote.png 635w , /images/detail/desktop/image-portfolio-preview-2-remote@2x.png 1270w",
+          "tablet": "/images/detail/tablet/image-portfolio-preview-2-remote.png 689w , /images/detail/tablet/image-portfolio-preview-2-remote@2x.png 1378w",
+          "mobile": "/images/detail/mobile/image-portfolio-preview-2-remote.png 313w , /images/detail/mobile/image-portfolio-preview-2-remote@2x.png 626w"
         }
       }
     }

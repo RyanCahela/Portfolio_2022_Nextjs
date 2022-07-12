@@ -68,16 +68,20 @@ const PortfolioProject = ({ data }) => {
                 </a>
               </Link>
               <div className="contents md:flex md:gap-4">
-                <Link href={externalUrls.frontendRepo}>
-                  <a>
-                    <SecondaryButton textContent="View Frontend Repo" />
-                  </a>
-                </Link>
-                <Link href={externalUrls.backendRepo}>
-                  <a>
-                    <SecondaryButton textContent="View Backend Repo" />
-                  </a>
-                </Link>
+                {externalUrls.frontendRepo && (
+                  <Link href={externalUrls.frontendRepo}>
+                    <a>
+                      <SecondaryButton textContent="View Frontend Repo" />
+                    </a>
+                  </Link>
+                )}
+                {externalUrls.backendRepo && (
+                  <Link href={externalUrls.backendRepo}>
+                    <a>
+                      <SecondaryButton textContent="View Backend Repo" />
+                    </a>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

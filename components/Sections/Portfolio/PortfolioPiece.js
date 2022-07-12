@@ -10,7 +10,7 @@ const PortfolioPiece = ({
   breakpoints,
   bodyCopy = "no body copy",
   title = "No title",
-  route,
+  route = "/",
   reverseOrder = false,
 }) => {
   return (
