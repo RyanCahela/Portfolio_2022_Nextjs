@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Title2 from "../../Typography/Title2";
 import Body1 from "../../Typography/Body1";
-import profilePic from "../../../public/images/homepage/desktop/image-homepage-profile@2x.jpg";
+import profilePic from "../../../public/images/homepage/desktop/image-homepage-profile@2X.jpeg";
 import SecondaryButton from "../../Buttons/SecondaryButton";
 
 const AboutMe = () => {

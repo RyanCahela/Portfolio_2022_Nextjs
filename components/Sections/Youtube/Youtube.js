@@ -20,11 +20,11 @@ const Youtube = () => {
         <div className="w-full md:w-1/2 py-6 border-b border-t flex flex-col gap-5">
           <Body2>
             Curious about my abilities? I have a YouTube Channel where I
-            celebrate software development and share tips and tricks to write
-            better code. The motivation for the channel is to solidify different
-            topics I&apos;m learning because research shows the best way to
-            learn something is to teach it! Another motivation is to have a
-            solid example of my workflow and skillset for potential employers.
+            celebrate software development and share tips and tricks for
+            building projects. The motivation for the channel is to solidify
+            different topics I&apos;m learning because research shows the best
+            way to learn something is to teach it! Another motivation is to have
+            a solid example of my workflow and skillset for potential employers.
           </Body2>
           <Link href="https://www.youtube.com/channel/UCYHuuNa4BVfuQW4H_CSQ8YQ">
             <a target="_blank">

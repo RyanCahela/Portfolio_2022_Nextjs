@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import heroImage from "../../../public/images/homepage/desktop/image-homepage-hero@2x.jpg";
 import Title1 from "../../Typography/Title1";
 import PrimaryButton from "../../Buttons/PrimaryButton";
 
@@ -10,19 +9,19 @@ const Hero = () => {
     <section className="pb-24 md:relative">
       <picture>
         <source
-          srcSet="/images/homepage/desktop/image-homepage-hero.jpg 1110w, /images/homepage/desktop/image-homepage-hero@2x.jpg 2220w"
+          srcSet="/images/homepage/desktop/image-homepage-hero.jpeg 1110w, /images/homepage/desktop/image-homepage-hero@2X.jpeg 2220w"
           media="screen and (min-width: 900px)"
         />
         <source
-          srcSet="/images/homepage/tablet/image-homepage-hero.jpg 688w, /images/homepage/tablet/image-homepage-hero@2x.jpg 1376w"
+          srcSet="/images/homepage/tablet/image-hero-tablet.jpeg 688w, /images/homepage/tablet/image-hero-tablet@2X.jpeg 1376w"
           media="screen and (min-width: 375px)"
         />
         <source
-          srcSet="/images/homepage/mobile/image-homepage-hero.jpg 311w, /images/homepage/mobile/image-homepage-hero@2x.jpg 622w"
+          srcSet="/images/homepage/mobile/image-hero-mobile.jpeg 311w, /images/homepage/mobile/image-hero-mobile@2X.jpeg 622w"
           media="screen and (min-width: 250px)"
         />
         <img
-          src="/images/homepage/tablet/image-homepage-hero.jpg"
+          src="/images/homepage/tablet/image-hero-tablet.jpeg"
           alt="computer on a desk"
         />
       </picture>
