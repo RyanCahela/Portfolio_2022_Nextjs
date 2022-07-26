@@ -29,7 +29,7 @@ const AboutMe = () => {
           I mostly use React, but I can adapt to whatever tools are required.
           I’m based in Los Angeles, California, but I’m happy working remotely
           and have experience in remote teams. When I’m not coding, you’ll find
-          me at the rock climbing gym or making Youtube videos. I’d love you to
+          me at the rock climbing gym or making Youtube videos. I’d love for you to
           check out my work.
         </Body1>
         <div className="mt-6">

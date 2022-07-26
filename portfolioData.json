@@ -1,7 +1,7 @@
 [
   {
     "title": "Entertainment App",
-    "bodyCopy": "I used a design from frontend mentor to build this app. The frontend is built with React and Styled Components. It calls a backend Express API I built to serve the thumbnail images and json data. The frontend state is managed with a useReducer hook and I had a fun time learning about node readable and writable streams to serve the images and data over http.",
+    "bodyCopy": "I used a design from a website called frontendmentor.io to build this app. The frontend is built with React and Styled Components. It calls a backend Express API I built to serve the thumbnail images and json data. The frontend state is managed with a useReducer hook and I had a fun time learning about node readable and writable streams to serve the images and data over http.",
     "route": "/PortfolioProject/0",
     "technologies": [
       { "iconLookupKey": "react", "text": "React.js" },

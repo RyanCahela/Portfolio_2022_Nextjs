@@ -26,7 +26,7 @@ const Youtube = () => {
             way to learn something is to teach it! Another motivation is to have
             a solid example of my workflow and skillset for potential employers.
           </Body2>
-          <Link href="https://www.youtube.com/channel/UCYHuuNa4BVfuQW4H_CSQ8YQ">
+          <Link href="https://www.youtube.com/channel/UCYHuuNa4BVfuQW4H_CSQ8YQ/videos">
             <a target="_blank">
               <SecondaryButton textContent="Go to Channel" />
             </a>
