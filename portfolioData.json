@@ -62,8 +62,8 @@
     ],
     "externalUrls": {
       "frontendLive": "https://hilarious-muffin-6e9500.netlify.app/",
-      "backendRepo": "https://github.com/RyanCahela/Intro_Section_With_Dropdown",
-      "frontendRepo": "",
+      "backendRepo": "",
+      "frontendRepo": "https://github.com/RyanCahela/Intro_Section_With_Dropdown",
       "backendLive": ""
     },
     "timlapseUrl": "",
