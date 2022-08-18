@@ -19,7 +19,10 @@ const textAreaClasses = `
 
 `;
 
-const TextArea = ({ labelText = "No Label Text Defined" }) => {
+const TextArea = ({
+  labelText = "No Label Text Defined",
+  name = "ErrorNoName",
+}) => {
   const id = useId();
   const [inputVal, setInputVal] = useState("");
   const [hasUserInteracted, setHasUserInteracted] = useState(false);
@@ -45,7 +48,8 @@ const TextArea = ({ labelText = "No Label Text Defined" }) => {
         id={id}
         value={inputVal}
         onChange={(e) => handleChange(e)}
-        required={isRequired}></textarea>
+        required={isRequired}
+        name={name}></textarea>
       {isRequired ? (
         <div className="text-bright-red font-bold italic pt-1 text-xxs">
           This field is required

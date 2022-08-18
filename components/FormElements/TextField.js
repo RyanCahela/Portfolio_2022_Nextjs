@@ -18,7 +18,11 @@ const inputClasses = `
   required:outline
 `;
 
-const TextField = ({ labelText = "No Label Text Defined" }) => {
+const TextField = ({
+  labelText = "No Label Text Defined",
+  placeholder = "What is your message?",
+  name = "errorNoName",
+}) => {
   const id = useId();
   const [inputVal, setInputVal] = useState("");
   const [hasUserInteracted, setHasUserInteracted] = useState(false);
@@ -39,10 +43,11 @@ const TextField = ({ labelText = "No Label Text Defined" }) => {
         {labelText}
       </label>
       <input
-        placeholder="What is your message?"
+        placeholder={placeholder}
         type="text"
         className={inputClasses}
         id={id}
+        name={name}
         value={inputVal}
         onChange={(e) => handleChange(e)}
         required={isRequired}></input>
