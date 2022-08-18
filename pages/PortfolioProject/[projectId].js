@@ -19,7 +19,6 @@ const PortfolioProject = ({ data }) => {
     title,
     bodyCopy,
     technologies,
-    projectBackgroundCopy,
     images,
     externalUrls,
   } = data[projectId];
@@ -87,10 +86,6 @@ const PortfolioProject = ({ data }) => {
           </div>
         </div>
         <div className="lg:col-start-2 lg:col-end-3">
-          <div className="pt-12 flex flex-col gap-7">
-            <Title3>Project Background</Title3>
-            <Body2>{projectBackgroundCopy}</Body2>
-          </div>
           <div className="pt-10 flex flex-col gap-10">
             <Title3>Static Previews</Title3>
             <div className="flex flex-col gap-8">
