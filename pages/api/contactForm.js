@@ -30,7 +30,10 @@ export default function handler(req, res) {
 
   transport.sendMail(message, (err, info) => {
     if (err) {
-      console.error(err);
+      res.status(500).json({
+        success: false,
+        message: `Error: ${err}`,
+      });
     } else {
       console.log("info", info);
     }
@@ -39,6 +42,7 @@ export default function handler(req, res) {
   // Found the name.
   // Sends a HTTP success code
   res.status(200).json({
+    success: true,
     data: `name: ${body.nameOfPerson} email: ${body.emailAddress} message: ${body.messageOfPerson}`,
   });
 }

@@ -16,6 +16,7 @@ const inputClasses = `
   required:outline-bright-red
   required:outline-2
   required:outline
+
 `;
 
 const TextField = ({
@@ -23,17 +24,14 @@ const TextField = ({
   placeholder = "What is your message?",
   name = "errorNoName",
   type = "text",
+  value = "",
+  formValuesDispatch,
 }) => {
   const id = useId();
-  const [inputVal, setInputVal] = useState("");
-  const [hasUserInteracted, setHasUserInteracted] = useState(false);
-
-  const isRequired = hasUserInteracted && inputVal === "";
-
+  const isRequired = true;
   const handleChange = (e) => {
     e.preventDefault();
-    if (!hasUserInteracted) setHasUserInteracted(true); //only runs on first interaction
-    setInputVal(e.target.value);
+    formValuesDispatch(e);
   };
 
   return (
@@ -49,7 +47,7 @@ const TextField = ({
         className={inputClasses}
         id={id}
         name={name}
-        value={inputVal}
+        value={value}
         onChange={(e) => handleChange(e)}
         required={isRequired}></input>
       {isRequired ? (

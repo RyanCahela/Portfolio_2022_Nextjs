@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import TextArea from "./TextArea";
 import TextField from "./TextField";
 import Title2 from "../Typography/Title2";
@@ -15,7 +15,6 @@ const handleSubmit = async (event) => {
   for (const [key, value] of formData.entries()) {
     // Get data from the form.
     data[key] = value;
-    console.log(data);
   }
 
   // Send the data to the server in JSON format.
@@ -42,12 +41,55 @@ const handleSubmit = async (event) => {
     // Get the response data from server as JSON.
     // If server returns the name submitted, that means the form works.
     const result = await response.json();
+    if (result.success) {
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-    alert(`Is this your full data: ${result.data}`);
-  } catch (err) {}
+const initialFormState = {
+  current: "IDLE",
+  values: {
+    name: "",
+    email: "",
+    message: "",
+  },
+};
+
+const reducer = (state, action) => {
+  switch (state.current) {
+    case "IDLE":
+      if (action.type === "INPUT") {
+        const newState = { ...state };
+
+        newState.values[action.payload.key] = action.payload.value;
+
+        console.log("new STate", newState);
+
+        return newState;
+      }
+      break;
+    case "VALIDATE":
+      break;
+    default:
+      console.error(
+        `somehting went wrong state.current = ${state.current} \n state = ${state} \n action = ${action}`
+      );
+  }
 };
 
 const ContactForm = () => {
+  const [formState, dispatch] = useReducer(reducer, initialFormState);
+  //generalize dispatch function so 'key' can be specified as props below.
+  const formValuesDispatch = ({ event, key }) => {
+    const payload = {
+      key: key,
+      value: event.target.value,
+    };
+    dispatch({ type: "INPUT", payload });
+  };
+
   return (
     <form
       className="border-t-2 border-t-light-gray pt-8 pb-20 flex flex-col gap-6"
@@ -57,24 +99,36 @@ const ContactForm = () => {
       encType="multipart/form-data">
       <Title2>Contact Me</Title2>
       <Body1>
-        The form below will open your local email client, if you&apos;re like me
-        and don&apos;t like those you can copy and paste my email into your
-        preferred platform.
+        The form below will send an email to my personal inbox. If you prefer to
+        use your own email client you can send an email to ryancahela@gmail.com
       </Body1>
-      <p>ryancahela@gmail.com</p>
       <TextField
         labelText="Name"
         placeholder="What is your name?"
         name="nameOfPerson"
+        value={formState.values.name}
+        formValuesDispatch={(e) =>
+          formValuesDispatch({ event: e, key: "name" })
+        }
       />
       <TextField
         labelText="Email Address"
         placeholder="What is your Email?"
         name="emailAddress"
         type="email"
+        value={formState.values.email}
+        formValuesDispatch={(e) =>
+          formValuesDispatch({ event: e, key: "email" })
+        }
       />
-      <TextArea labelText="Message" name="messageOfPerson" />
+      {/* <TextArea
+        labelText="Message"
+        name="messageOfPerson"
+        value={formState.message}
+        formValuesDispatch={(e)formValuesDispatch}
+      /> */}
       <PrimaryButton textContent="Send Message" isIconVisible={false} />
+      <div>Message Sent</div>
     </form>
   );
 };

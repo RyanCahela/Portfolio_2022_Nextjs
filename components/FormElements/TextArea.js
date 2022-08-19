@@ -15,17 +15,15 @@ const textAreaClasses = `
   required:focus:outline 
   required:outline-bright-red
   required:outline-2
-  required:outline 
-
+  required:outline
 `;
 
 const TextArea = ({
   labelText = "No Label Text Defined",
   name = "ErrorNoName",
+  value = "",
 }) => {
   const id = useId();
-  const [inputVal, setInputVal] = useState("");
-  const [hasUserInteracted, setHasUserInteracted] = useState(false);
 
   const isRequired = hasUserInteracted && inputVal === "";
 
@@ -46,7 +44,7 @@ const TextArea = ({
         placeholder="What is your message?"
         className={textAreaClasses}
         id={id}
-        value={inputVal}
+        value={value}
         onChange={(e) => handleChange(e)}
         required={isRequired}
         name={name}></textarea>
