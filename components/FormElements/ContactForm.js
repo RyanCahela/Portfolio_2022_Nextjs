@@ -36,13 +36,15 @@ const handleSubmit = async (event) => {
     body: JSONdata,
   };
 
-  // Send the form data to our forms API on Vercel and get a response.
-  const response = await fetch(endpoint, options);
+  try {
+    // Send the form data to our forms API on Vercel and get a response.
+    const response = await fetch(endpoint, options);
+    // Get the response data from server as JSON.
+    // If server returns the name submitted, that means the form works.
+    const result = await response.json();
 
-  // Get the response data from server as JSON.
-  // If server returns the name submitted, that means the form works.
-  const result = await response.json();
-  alert(`Is this your full data: ${result.data}`);
+    alert(`Is this your full data: ${result.data}`);
+  } catch (err) {}
 };
 
 const ContactForm = () => {
@@ -69,6 +71,7 @@ const ContactForm = () => {
         labelText="Email Address"
         placeholder="What is your Email?"
         name="emailAddress"
+        type="email"
       />
       <TextArea labelText="Message" name="messageOfPerson" />
       <PrimaryButton textContent="Send Message" isIconVisible={false} />

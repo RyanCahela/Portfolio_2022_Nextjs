@@ -22,6 +22,7 @@ const TextField = ({
   labelText = "No Label Text Defined",
   placeholder = "What is your message?",
   name = "errorNoName",
+  type = "text",
 }) => {
   const id = useId();
   const [inputVal, setInputVal] = useState("");
@@ -44,7 +45,7 @@ const TextField = ({
       </label>
       <input
         placeholder={placeholder}
-        type="text"
+        type={type}
         className={inputClasses}
         id={id}
         name={name}
