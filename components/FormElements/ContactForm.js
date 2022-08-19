@@ -62,11 +62,8 @@ const reducer = (state, action) => {
     case "IDLE":
       if (action.type === "INPUT") {
         const newState = { ...state };
-
         newState.values[action.payload.key] = action.payload.value;
-
         console.log("new STate", newState);
-
         return newState;
       }
       break;
@@ -121,12 +118,14 @@ const ContactForm = () => {
           formValuesDispatch({ event: e, key: "email" })
         }
       />
-      {/* <TextArea
+      <TextArea
         labelText="Message"
         name="messageOfPerson"
-        value={formState.message}
-        formValuesDispatch={(e)formValuesDispatch}
-      /> */}
+        value={formState.values.message}
+        formValuesDispatch={(e) =>
+          formValuesDispatch({ event: e, key: "message" })
+        }
+      />
       <PrimaryButton textContent="Send Message" isIconVisible={false} />
       <div>Message Sent</div>
     </form>

@@ -22,15 +22,15 @@ const TextArea = ({
   labelText = "No Label Text Defined",
   name = "ErrorNoName",
   value = "",
+  formValuesDispatch,
 }) => {
   const id = useId();
 
-  const isRequired = hasUserInteracted && inputVal === "";
+  const isRequired = true;
 
   const handleChange = (e) => {
     e.preventDefault();
-    if (!hasUserInteracted) setHasUserInteracted(true); //only runs on first interaction
-    setInputVal(e.target.value);
+    formValuesDispatch(e);
   };
 
   return (
