@@ -34,16 +34,21 @@ const handleSubmit = async (event, dispatch, currentState) => {
     // Body of the request is the JSON data we created above.
     body: JSONdata,
   };
-
+  dispatch({ type: "SUBMIT" });
   try {
     // Send the form data to our forms API on Vercel and get a response.
     const response = await fetch(endpoint, options);
     // Get the response data from server as JSON.
     // If server returns the name submitted, that means the form works.
     const result = await response.json();
+    console.log("result", result);
     if (result.success) {
+      dispatch({ type: "SUCCESS" });
+    } else {
+      dispatch({ type: "ERROR" });
     }
   } catch (err) {
+    dispatch({ type: "ERROR" });
     console.error(err);
   }
 };
@@ -51,19 +56,49 @@ const handleSubmit = async (event, dispatch, currentState) => {
 //STATES = "IDLE", "SUBMITTING", "SUCCESS", "ERROR"
 const initialFormState = {
   current: "IDLE",
-  values: {
-    name: "",
-    email: "",
-    message: "",
-  },
+  message: "",
 };
 
 const reducer = (state, action) => {
   switch (state.current) {
+    case "IDLE":
+      if (action.type === "SUBMIT") {
+        return {
+          current: "SUBMITTING",
+          message: "Sending your message",
+        };
+      }
+      break;
+    case "SUBMITTING":
+      if (action.type === "SUCCESS") {
+        return {
+          current: "SUCCESS",
+          message: "Your message has been recieved.",
+        };
+      }
+      if (action.type === "ERROR") {
+        return {
+          current: "ERROR",
+          message:
+            "There was an error processing your message, if this continues please email me ryancahela@gmail.com",
+        };
+      }
+      break;
+    case "SUCCESS":
+      console.error("the submit was already successful");
+      return state;
+    case "ERROR":
+      if (action.type === "SUBMIT") {
+        return {
+          current: "SUBMITTING",
+          message: "SUBMITTING",
+        };
+      }
     default:
       console.error(
-        `somehting went wrong state.current = ${state.current} \n state = ${state} \n action = ${action}`
+        `something went wrong state.current = ${state.current} \n state = ${state} \n action = ${action.type}`
       );
+      return state;
   }
 };
 
@@ -86,22 +121,16 @@ const ContactForm = () => {
         labelText="Name"
         placeholder="What is your name?"
         name="nameOfPerson"
-        value={formState.values.name}
       />
       <TextField
         labelText="Email Address"
         placeholder="What is your Email?"
         name="emailAddress"
         type="email"
-        value={formState.values.email}
       />
-      <TextArea
-        labelText="Message"
-        name="messageOfPerson"
-        value={formState.values.message}
-      />
+      <TextArea labelText="Message" name="messageOfPerson" />
       <PrimaryButton textContent="Send Message" isIconVisible={false} />
-      <div>Message Sent</div>
+      <div>{formState.message}</div>
     </form>
   );
 };
