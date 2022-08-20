@@ -1,4 +1,4 @@
-import React, { useId, useState } from "react";
+import React, { useId, useReducer } from "react";
 
 const inputClasses = `
   bg-light-gray
@@ -10,29 +10,49 @@ const inputClasses = `
   focus:outline-cyan
   focus:outline-4
 
-  required:focus:outline-bright-red
-  required:focus:outline-2
-  required:focus:outline 
-  required:outline-bright-red
-  required:outline-2
-  required:outline
 
 `;
+
+const invalidClasses = `
+  invalid:focus:outline-bright-red
+  invalid:focus:outline-2
+  invalid:focus:outline 
+  invalid:outline-bright-red
+  invalid:outline-2
+  invalid:outline
+`;
+
+const initalState = {
+  current: "IDLE",
+  value: "",
+};
+
+const reducer = (state, action) => {
+  switch (state.current) {
+    case "IDLE":
+      return { current: "INTERACTED", value: action.payload };
+    case "INTERACTED":
+      return { ...state, value: action.payload };
+    default:
+      console.error("something went wrong!");
+  }
+};
 
 const TextField = ({
   labelText = "No Label Text Defined",
   placeholder = "What is your message?",
   name = "errorNoName",
   type = "text",
-  value = "",
-  formValuesDispatch,
 }) => {
+  const [inputState, dispatch] = useReducer(reducer, initalState);
   const id = useId();
-  const isRequired = true;
   const handleChange = (e) => {
     e.preventDefault();
-    formValuesDispatch(e);
+    dispatch({ payload: e.target.value });
   };
+
+  const isEmpty =
+    inputState.current === "INTERACTED" && inputState.value === "";
 
   return (
     <div className="flex flex-col gap-2">
@@ -44,13 +64,13 @@ const TextField = ({
       <input
         placeholder={placeholder}
         type={type}
-        className={inputClasses}
+        className={`${inputClasses} ${isEmpty ? invalidClasses : ""}`}
         id={id}
         name={name}
-        value={value}
+        value={inputState.value}
         onChange={(e) => handleChange(e)}
-        required={isRequired}></input>
-      {isRequired ? (
+        required></input>
+      {inputState.current === "INTERACTED" && inputState.value === "" ? (
         <div className="text-bright-red font-bold italic pt-1 text-xxs">
           This field is required
         </div>

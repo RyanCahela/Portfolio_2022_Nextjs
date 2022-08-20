@@ -1,4 +1,4 @@
-import React, { useId, useState } from "react";
+import React, { useId, useReducer } from "react";
 
 const textAreaClasses = `
   bg-light-gray
@@ -9,28 +9,47 @@ const textAreaClasses = `
 
   focus:outline-cyan
   focus:outline-4
-
-  required:focus:outline-bright-red
-  required:focus:outline-2
-  required:focus:outline 
-  required:outline-bright-red
-  required:outline-2
-  required:outline
 `;
+
+const invalidClasses = ` 
+  invalid:focus:outline-bright-red
+  invalid:focus:outline-2
+  invalid:focus:outline 
+  invalid:outline-bright-red
+  invalid:outline-2
+  invalid:outline
+`;
+
+const initialInputState = {
+  current: "IDLE",
+  value: "",
+};
+
+const reducer = (state, action) => {
+  switch (state.current) {
+    case "IDLE":
+      return { current: "INTERACTED", value: action.payload };
+    case "INTERACTED":
+      return { ...state, value: action.payload };
+    default:
+      console.error("something went wrong!");
+  }
+};
 
 const TextArea = ({
   labelText = "No Label Text Defined",
   name = "ErrorNoName",
   value = "",
-  formValuesDispatch,
 }) => {
+  const [inputState, dispatch] = useReducer(reducer, initialInputState);
   const id = useId();
 
-  const isRequired = true;
+  const isEmpty =
+    inputState.current === "INTERACTED" && inputState.value === "";
 
   const handleChange = (e) => {
     e.preventDefault();
-    formValuesDispatch(e);
+    dispatch({ payload: e.target.value });
   };
 
   return (
@@ -42,13 +61,13 @@ const TextArea = ({
       </label>
       <textarea
         placeholder="What is your message?"
-        className={textAreaClasses}
+        className={`${textAreaClasses} ${isEmpty ? invalidClasses : ""}`}
         id={id}
-        value={value}
+        value={inputState.value}
         onChange={(e) => handleChange(e)}
-        required={isRequired}
-        name={name}></textarea>
-      {isRequired ? (
+        name={name}
+        required></textarea>
+      {isEmpty ? (
         <div className="text-bright-red font-bold italic pt-1 text-xxs">
           This field is required
         </div>

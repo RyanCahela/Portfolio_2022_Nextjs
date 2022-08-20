@@ -5,17 +5,17 @@ import Title2 from "../Typography/Title2";
 import Body1 from "../Typography/Body1";
 import PrimaryButton from "../Buttons/PrimaryButton";
 
-const handleSubmit = async (event) => {
+const handleSubmit = async (event, dispatch, currentState) => {
   // Stop the form from submitting and refreshing the page.
   event.preventDefault();
 
   const formData = new FormData(event.target);
-
   const data = {};
   for (const [key, value] of formData.entries()) {
     // Get data from the form.
     data[key] = value;
   }
+  console.log("data", data);
 
   // Send the data to the server in JSON format.
   const JSONdata = JSON.stringify(data);
@@ -48,6 +48,7 @@ const handleSubmit = async (event) => {
   }
 };
 
+//STATES = "IDLE", "SUBMITTING", "SUCCESS", "ERROR"
 const initialFormState = {
   current: "IDLE",
   values: {
@@ -59,16 +60,6 @@ const initialFormState = {
 
 const reducer = (state, action) => {
   switch (state.current) {
-    case "IDLE":
-      if (action.type === "INPUT") {
-        const newState = { ...state };
-        newState.values[action.payload.key] = action.payload.value;
-        console.log("new STate", newState);
-        return newState;
-      }
-      break;
-    case "VALIDATE":
-      break;
     default:
       console.error(
         `somehting went wrong state.current = ${state.current} \n state = ${state} \n action = ${action}`
@@ -78,19 +69,11 @@ const reducer = (state, action) => {
 
 const ContactForm = () => {
   const [formState, dispatch] = useReducer(reducer, initialFormState);
-  //generalize dispatch function so 'key' can be specified as props below.
-  const formValuesDispatch = ({ event, key }) => {
-    const payload = {
-      key: key,
-      value: event.target.value,
-    };
-    dispatch({ type: "INPUT", payload });
-  };
 
   return (
     <form
       className="border-t-2 border-t-light-gray pt-8 pb-20 flex flex-col gap-6"
-      onSubmit={handleSubmit}
+      onSubmit={(e) => handleSubmit(e, dispatch)}
       method="POST"
       action="/api/contactForm"
       encType="multipart/form-data">
@@ -104,9 +87,6 @@ const ContactForm = () => {
         placeholder="What is your name?"
         name="nameOfPerson"
         value={formState.values.name}
-        formValuesDispatch={(e) =>
-          formValuesDispatch({ event: e, key: "name" })
-        }
       />
       <TextField
         labelText="Email Address"
@@ -114,17 +94,11 @@ const ContactForm = () => {
         name="emailAddress"
         type="email"
         value={formState.values.email}
-        formValuesDispatch={(e) =>
-          formValuesDispatch({ event: e, key: "email" })
-        }
       />
       <TextArea
         labelText="Message"
         name="messageOfPerson"
         value={formState.values.message}
-        formValuesDispatch={(e) =>
-          formValuesDispatch({ event: e, key: "message" })
-        }
       />
       <PrimaryButton textContent="Send Message" isIconVisible={false} />
       <div>Message Sent</div>
