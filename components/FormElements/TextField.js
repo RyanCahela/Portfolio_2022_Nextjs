@@ -9,8 +9,6 @@ const inputClasses = `
 
   focus:outline-cyan
   focus:outline-4
-
-
 `;
 
 const invalidClasses = `
@@ -24,15 +22,14 @@ const invalidClasses = `
 
 const initalState = {
   current: "IDLE",
-  value: "",
 };
 
 const reducer = (state, action) => {
   switch (state.current) {
     case "IDLE":
-      return { current: "INTERACTED", value: action.payload };
+      return { current: "INTERACTED" };
     case "INTERACTED":
-      return { ...state, value: action.payload };
+      return { ...state };
     default:
       console.error("something went wrong!");
   }
@@ -41,18 +38,20 @@ const reducer = (state, action) => {
 const TextField = ({
   labelText = "No Label Text Defined",
   placeholder = "What is your message?",
-  name = "errorNoName",
+  inputName = "errorNoName",
   type = "text",
+  inputValue,
+  formDispatch,
 }) => {
-  const [inputState, dispatch] = useReducer(reducer, initalState);
+  const [inputState, localDispatch] = useReducer(reducer, initalState);
   const id = useId();
   const handleChange = (e) => {
     e.preventDefault();
-    dispatch({ payload: e.target.value });
+    localDispatch();
+    formDispatch({ type: "CHANGE", inputName, inputValue: e.target.value });
   };
 
-  const isEmpty =
-    inputState.current === "INTERACTED" && inputState.value === "";
+  const isEmpty = inputState.current === "INTERACTED" && inputValue === "";
 
   return (
     <div className="flex flex-col gap-2">
@@ -66,11 +65,11 @@ const TextField = ({
         type={type}
         className={`${inputClasses} ${isEmpty ? invalidClasses : ""}`}
         id={id}
-        name={name}
-        value={inputState.value}
+        name={inputName}
+        value={inputValue}
         onChange={(e) => handleChange(e)}
         required></input>
-      {inputState.current === "INTERACTED" && inputState.value === "" ? (
+      {isEmpty ? (
         <div className="text-bright-red font-bold italic pt-1 text-xxs">
           This field is required
         </div>

@@ -28,9 +28,9 @@ const initialInputState = {
 const reducer = (state, action) => {
   switch (state.current) {
     case "IDLE":
-      return { current: "INTERACTED", value: action.payload };
+      return { current: "INTERACTED" };
     case "INTERACTED":
-      return { ...state, value: action.payload };
+      return { ...state };
     default:
       console.error("something went wrong!");
   }
@@ -38,10 +38,11 @@ const reducer = (state, action) => {
 
 const TextArea = ({
   labelText = "No Label Text Defined",
-  name = "ErrorNoName",
-  value = "",
+  inputName = "ErrorNoName",
+  formDispatch,
+  inputValue,
 }) => {
-  const [inputState, dispatch] = useReducer(reducer, initialInputState);
+  const [inputState, localDispatch] = useReducer(reducer, initialInputState);
   const id = useId();
 
   const isEmpty =
@@ -49,7 +50,8 @@ const TextArea = ({
 
   const handleChange = (e) => {
     e.preventDefault();
-    dispatch({ payload: e.target.value });
+    localDispatch({ payload: e.target.value });
+    formDispatch({ type: "CHANGE", inputName, inputValue: e.target.value });
   };
 
   return (
@@ -63,7 +65,7 @@ const TextArea = ({
         placeholder="What is your message?"
         className={`${textAreaClasses} ${isEmpty ? invalidClasses : ""}`}
         id={id}
-        value={inputState.value}
+        value={inputValue}
         onChange={(e) => handleChange(e)}
         name={name}
         required></textarea>

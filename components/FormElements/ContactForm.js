@@ -57,11 +57,18 @@ const handleSubmit = async (event, dispatch, currentState) => {
 const initialFormState = {
   current: "IDLE",
   message: "",
+  messageClassName: "",
+  inputName: "", //inputValue
 };
 
 const reducer = (state, action) => {
   switch (state.current) {
     case "IDLE":
+      if (action.type === "CHANGE") {
+        const newState = { ...state };
+        newState[action.inputName] = action.inputValue;
+        return newState;
+      }
       if (action.type === "SUBMIT") {
         return {
           current: "SUBMITTING",
@@ -73,14 +80,16 @@ const reducer = (state, action) => {
       if (action.type === "SUCCESS") {
         return {
           current: "SUCCESS",
-          message: "Your message has been recieved.",
+          message: "Your message has been sent.",
+          messageClassName: "text-green-700 text-2xl",
         };
       }
       if (action.type === "ERROR") {
         return {
           current: "ERROR",
           message:
-            "There was an error processing your message, if this continues please email me ryancahela@gmail.com",
+            "There was an error processing your message, if this continues please email ryancahela@gmail.com",
+          messageClassName: "text-bright-red text-2xl",
         };
       }
       break;
@@ -91,7 +100,7 @@ const reducer = (state, action) => {
       if (action.type === "SUBMIT") {
         return {
           current: "SUBMITTING",
-          message: "SUBMITTING",
+          message: "Sending Message",
         };
       }
     default:
@@ -103,7 +112,7 @@ const reducer = (state, action) => {
 };
 
 const ContactForm = () => {
-  const [formState, dispatch] = useReducer(reducer, initialFormState);
+  const [formState, formDispatch] = useReducer(reducer, initialFormState);
 
   return (
     <form
@@ -120,17 +129,26 @@ const ContactForm = () => {
       <TextField
         labelText="Name"
         placeholder="What is your name?"
-        name="nameOfPerson"
+        inputName="nameOfPerson"
+        inputValue={formState["nameOfPerson"]}
+        formDispatch={formDispatch}
       />
       <TextField
         labelText="Email Address"
         placeholder="What is your Email?"
-        name="emailAddress"
+        inputName="emailAddress"
+        inputValue={formState["emailAddress"]}
+        formDispatch={formDispatch}
         type="email"
       />
-      <TextArea labelText="Message" name="messageOfPerson" />
+      <TextArea
+        labelText="Message"
+        inputName="messageOfPerson"
+        inputValue={formState["messageOfPerson"]}
+        formDispatch={formDispatch}
+      />
       <PrimaryButton textContent="Send Message" isIconVisible={false} />
-      <div>{formState.message}</div>
+      <div className={formState.messageClassName}>{formState.message}</div>
     </form>
   );
 };
