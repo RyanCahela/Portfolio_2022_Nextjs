@@ -1,6 +1,6 @@
 import React from "react";
 import GithubLogoSVG from "../Logos/GithubLogoSVG";
-import YoutubeLogoSVG from "../Logos/YoutubeLogoSVG";
+import YouTubeLogoSVG from "../Logos/YouTubeLogoSVG";
 import LinkedinLogoSVG from "../Logos/LinkedinLogoSVG";
 
 const SocialLinks = () => {
@@ -19,7 +19,7 @@ const SocialLinks = () => {
           href="https://www.youtube.com/channel/UCYHuuNa4BVfuQW4H_CSQ8YQ"
           target="_blank"
           rel="noreferrer">
-          <YoutubeLogoSVG />
+          <YouTubeLogoSVG />
         </a>
       </li>
       <li className="w-6 h-6">
