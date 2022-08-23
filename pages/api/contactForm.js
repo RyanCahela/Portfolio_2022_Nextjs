@@ -4,12 +4,6 @@ const process = require("process");
 export default function handler(req, res) {
   const body = req.body;
 
-  console.log("process", process.env);
-
-  console.log("body name", body.nameOfPerson);
-  console.log("body email", body.emailAddress);
-  console.log("body message", body.messageOfPerson);
-
   const transport = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: 587,
@@ -21,11 +15,11 @@ export default function handler(req, res) {
   });
 
   var message = {
-    from: body.emailAddress,
+    from: body.emailAddress.value,
     to: "ryancahela@gmail.com",
-    subject: `a contact message from ${body.nameOfPerson} from your website`,
-    text: body.messageOfPerson,
-    html: `<p>${body.messageOfPerson}</p>`,
+    subject: `a contact message from ${body.nameOfPerson.value} from your website`,
+    text: body.messageOfPerson.value,
+    html: `<p>${body.messageOfPerson.value}</p>`,
   };
 
   transport.sendMail(message, (err, info) => {
@@ -41,7 +35,7 @@ export default function handler(req, res) {
       // Sends a HTTP success code
       res.status(200).json({
         success: true,
-        data: `name: ${body.nameOfPerson} email: ${body.emailAddress} message: ${body.messageOfPerson}`,
+        data: `name: ${body.nameOfPerson.value} email: ${body.emailAddress.value} message: ${body.messageOfPerson.value}`,
       });
     }
   });

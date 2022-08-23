@@ -22,14 +22,14 @@ const invalidClasses = `
 
 const initialInputState = {
   current: "IDLE",
-  value: "",
 };
 
-const reducer = (state, action) => {
+const reducer = (state) => {
   switch (state.current) {
     case "IDLE":
       return { current: "INTERACTED" };
     case "INTERACTED":
+      //form will stay in this state after initial interaction by user.
       return { ...state };
     default:
       console.error("something went wrong!");
@@ -38,20 +38,20 @@ const reducer = (state, action) => {
 
 const TextArea = ({
   labelText = "No Label Text Defined",
-  inputName = "ErrorNoName",
   formDispatch,
-  inputValue,
+  inputState,
 }) => {
-  const [inputState, localDispatch] = useReducer(reducer, initialInputState);
   const id = useId();
 
-  const isEmpty =
-    inputState.current === "INTERACTED" && inputState.value === "";
+  const isEmpty = inputState.state === "INTERACTED" && inputState.value === "";
 
   const handleChange = (e) => {
     e.preventDefault();
-    localDispatch({ payload: e.target.value });
-    formDispatch({ type: "CHANGE", inputName, inputValue: e.target.value });
+    formDispatch({
+      type: "CHANGE",
+      name: inputState.name,
+      value: e.target.value,
+    });
   };
 
   return (
@@ -65,9 +65,9 @@ const TextArea = ({
         placeholder="What is your message?"
         className={`${textAreaClasses} ${isEmpty ? invalidClasses : ""}`}
         id={id}
-        value={inputValue}
+        value={inputState.value}
         onChange={(e) => handleChange(e)}
-        name={name}
+        name={inputState.name}
         required></textarea>
       {isEmpty ? (
         <div className="text-bright-red font-bold italic pt-1 text-xxs">

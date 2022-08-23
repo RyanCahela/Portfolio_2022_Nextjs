@@ -5,17 +5,15 @@ import Title2 from "../Typography/Title2";
 import Body1 from "../Typography/Body1";
 import PrimaryButton from "../Buttons/PrimaryButton";
 
-const handleSubmit = async (event, dispatch, currentState) => {
+const handleSubmit = async (event, formDispatch, formState) => {
   // Stop the form from submitting and refreshing the page.
   event.preventDefault();
 
-  const formData = new FormData(event.target);
-  const data = {};
-  for (const [key, value] of formData.entries()) {
-    // Get data from the form.
-    data[key] = value;
-  }
-  console.log("data", data);
+  const data = {
+    nameOfPerson: formState.nameOfPerson,
+    emailAddress: formState.emailAddress,
+    messageOfPerson: formState.messageOfPerson,
+  };
 
   // Send the data to the server in JSON format.
   const JSONdata = JSON.stringify(data);
@@ -34,7 +32,7 @@ const handleSubmit = async (event, dispatch, currentState) => {
     // Body of the request is the JSON data we created above.
     body: JSONdata,
   };
-  dispatch({ type: "SUBMIT" });
+  formDispatch({ type: "SUBMIT" });
   try {
     // Send the form data to our forms API on Vercel and get a response.
     const response = await fetch(endpoint, options);
@@ -43,12 +41,12 @@ const handleSubmit = async (event, dispatch, currentState) => {
     const result = await response.json();
     console.log("result", result);
     if (result.success) {
-      dispatch({ type: "SUCCESS" });
+      formDispatch({ type: "SUCCESS" });
     } else {
-      dispatch({ type: "ERROR" });
+      formDispatch({ type: "ERROR" });
     }
   } catch (err) {
-    dispatch({ type: "ERROR" });
+    formDispatch({ type: "ERROR" });
     console.error(err);
   }
 };
@@ -59,6 +57,21 @@ const initialFormState = {
   message: "",
   messageClassName: "",
   inputName: "", //inputValue
+  nameOfPerson: {
+    name: "nameOfPerson",
+    state: "IDLE",
+    value: "",
+  },
+  emailAddress: {
+    name: "emailAddress",
+    state: "IDLE",
+    value: "",
+  },
+  messageOfPerson: {
+    name: "messageOfPerson",
+    state: "IDLE",
+    value: "",
+  },
 };
 
 const reducer = (state, action) => {
@@ -66,11 +79,16 @@ const reducer = (state, action) => {
     case "IDLE":
       if (action.type === "CHANGE") {
         const newState = { ...state };
-        newState[action.inputName] = action.inputValue;
+        newState[action.name] = {
+          state: "INTERACTED",
+          value: action.value,
+          name: action.name,
+        };
         return newState;
       }
       if (action.type === "SUBMIT") {
         return {
+          ...state,
           current: "SUBMITTING",
           message: "Sending your message",
         };
@@ -82,10 +100,26 @@ const reducer = (state, action) => {
           current: "SUCCESS",
           message: "Your message has been sent.",
           messageClassName: "text-green-700 text-2xl",
+          nameOfPerson: {
+            name: "nameOfPerson",
+            value: "",
+            state: "IDLE",
+          },
+          messageOfPerson: {
+            name: "messageOfPerson",
+            value: "",
+            state: "IDLE",
+          },
+          emailAddress: {
+            name: "emailAddress",
+            value: "",
+            state: "IDLE",
+          },
         };
       }
       if (action.type === "ERROR") {
         return {
+          ...state,
           current: "ERROR",
           message:
             "There was an error processing your message, if this continues please email ryancahela@gmail.com",
@@ -94,14 +128,35 @@ const reducer = (state, action) => {
       }
       break;
     case "SUCCESS":
-      console.error("the submit was already successful");
-      return state;
+      if (action.type === "CHANGE") {
+        const newState = { ...state };
+        newState[action.name] = {
+          value: action.value,
+          name: action.name,
+          state: "INTERACTED",
+        };
+        newState.current = "IDLE";
+        return newState;
+      }
+      if (action.type === "SUBMIT") {
+        return {
+          ...state,
+          current: "SUBMITTING",
+          message: "The message was already sent successfully",
+        };
+      }
     case "ERROR":
       if (action.type === "SUBMIT") {
         return {
           current: "SUBMITTING",
           message: "Sending Message",
         };
+      }
+      if (action.type === "CHANGE") {
+        const newState = { ...state };
+        newState[action.inputName] = action.inputValue;
+        newState.current = "IDLE";
+        return newState;
       }
     default:
       console.error(
@@ -117,7 +172,7 @@ const ContactForm = () => {
   return (
     <form
       className="border-t-2 border-t-light-gray pt-8 pb-20 flex flex-col gap-6"
-      onSubmit={(e) => handleSubmit(e, dispatch)}
+      onSubmit={(e) => handleSubmit(e, formDispatch, formState)}
       method="POST"
       action="/api/contactForm"
       encType="multipart/form-data">
@@ -129,26 +184,24 @@ const ContactForm = () => {
       <TextField
         labelText="Name"
         placeholder="What is your name?"
-        inputName="nameOfPerson"
-        inputValue={formState["nameOfPerson"]}
+        inputState={formState["nameOfPerson"]}
         formDispatch={formDispatch}
       />
       <TextField
         labelText="Email Address"
         placeholder="What is your Email?"
-        inputName="emailAddress"
-        inputValue={formState["emailAddress"]}
+        inputState={formState["emailAddress"]}
         formDispatch={formDispatch}
         type="email"
       />
       <TextArea
         labelText="Message"
-        inputName="messageOfPerson"
-        inputValue={formState["messageOfPerson"]}
+        inputState={formState["messageOfPerson"]}
         formDispatch={formDispatch}
       />
       <PrimaryButton textContent="Send Message" isIconVisible={false} />
       <div className={formState.messageClassName}>{formState.message}</div>
+      <div>{formState.current}</div>
     </form>
   );
 };

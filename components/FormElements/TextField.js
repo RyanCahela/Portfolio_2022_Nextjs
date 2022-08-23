@@ -20,38 +20,24 @@ const invalidClasses = `
   invalid:outline
 `;
 
-const initalState = {
-  current: "IDLE",
-};
-
-const reducer = (state, action) => {
-  switch (state.current) {
-    case "IDLE":
-      return { current: "INTERACTED" };
-    case "INTERACTED":
-      return { ...state };
-    default:
-      console.error("something went wrong!");
-  }
-};
-
 const TextField = ({
   labelText = "No Label Text Defined",
   placeholder = "What is your message?",
-  inputName = "errorNoName",
   type = "text",
-  inputValue,
+  inputState,
   formDispatch,
 }) => {
-  const [inputState, localDispatch] = useReducer(reducer, initalState);
   const id = useId();
   const handleChange = (e) => {
     e.preventDefault();
-    localDispatch();
-    formDispatch({ type: "CHANGE", inputName, inputValue: e.target.value });
+    formDispatch({
+      type: "CHANGE",
+      name: inputState.name,
+      value: e.target.value,
+    });
   };
 
-  const isEmpty = inputState.current === "INTERACTED" && inputValue === "";
+  const isEmpty = inputState.state === "INTERACTED" && inputState.value === "";
 
   return (
     <div className="flex flex-col gap-2">
@@ -65,8 +51,8 @@ const TextField = ({
         type={type}
         className={`${inputClasses} ${isEmpty ? invalidClasses : ""}`}
         id={id}
-        name={inputName}
-        value={inputValue}
+        name={inputState.name}
+        value={inputState.value}
         onChange={(e) => handleChange(e)}
         required></input>
       {isEmpty ? (
