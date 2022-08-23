@@ -201,7 +201,6 @@ const ContactForm = () => {
       />
       <PrimaryButton textContent="Send Message" isIconVisible={false} />
       <div className={formState.messageClassName}>{formState.message}</div>
-      <div>{formState.current}</div>
     </form>
   );
 };
